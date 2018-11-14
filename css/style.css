@@ -586,7 +586,7 @@ padding:1em 0 0;
   color: #000;
   font-size: 1em;
   background: #fff;
-  border: none;
+  border-color: #DCDC;
  }
  .amet-sed input[type="submit"] {
   width: 20%;
