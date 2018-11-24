@@ -1,15 +1,15 @@
 <?php
-	include_once("../persistence/Connection.php");
-	include_once("../persistence/ClienteDAO.php");
+	include_once("../persistence/conexao.php");
+	include_once("../persistence/produtoDAO.php");
 	
-	$conexao = new Connection("localhost","root","","teste");
+	$conexao = new Connection("localhost","root","","pevstore");
 	$conexao->conectar();
 	
-	$clientedao = new ClienteDao();
+	$clientedao = new ProdutoDao();
 	$resultado = $clientedao->consultar($_POST["codigo"], $conexao->getLink());
 	$linha = mysqli_fetch_row($resultado);
 	
-	echo '<form action="../controller/C_salvarAlteracaoCliente.php" method="POST">';
+	echo '<form action="../controller/salvarAlteracaoProduto.php" method="POST">';
 	echo 'Codigo: <input type="text" name="codigo" value="'.($linha[0]).'" readonly/><br />';
 	echo 'Nome: <input type="text" name="nome" value="'.($linha[1]).'"/><br />';
 	echo 'Data de Nascimento: <input type="text" name="nascimento" value="'.($linha[2]).'" /><br />';
