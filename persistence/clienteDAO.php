@@ -11,7 +11,7 @@
 			if(!mysqli_query($link, $query)) {
 				die("Erro ao tentar se cadastrar!.");
 			} else {
-				echo "Cliente cadastrado com sucesso!";
+				header("Location: ../../view/pagInicial.html");
 			}
 		}
 		
