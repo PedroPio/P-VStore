@@ -1,13 +1,15 @@
 <?php
-	include_once("../model/Cliente.php");
-	include_once("../persistence/Connection.php");
-	include_once("../persistence/ClienteDAO.php");
+	include_once("../../model/produto.php");
+	include_once("../../persistence/conexao.php");
+	include_once("../../persistence/produtoDAO.php");
 	
-	$cliente = new Cliente(null, $_POST["nome"], $_POST["nascimento"], $_POST["salario"]);
+	$produto = new Produto(null, $_POST["nome"], $_POST["marca"], 
+						   $_POST["fornecedor"], $_POST["descricao"],
+						   $_POST["preco"], $_POST["quantidade"]);
 	
-	$conexao = new Connection("localhost","root","","teste");
+	$conexao = new Conexao("localhost","root","","pevstore");
 	$conexao->conectar();
-	
-	$clientedao = new ClienteDao();
-	$clientedao->cadastrar($cliente, $conexao->getLink());
+
+	$produtodao = new ProdutoDAO();
+	$produtodao->cadastrar($produto, $conexao->getLink());
 ?>

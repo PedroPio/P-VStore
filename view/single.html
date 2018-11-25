@@ -13,7 +13,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 <link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="../text/javascript" src="js/memenu.js"></script>
+<script type="text/javascript" src="../js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
  
 
@@ -215,6 +215,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 			<script type="text/javascript">
+				//menu de categorias
 				$(function() {
 					var menu_ul = $('.menu > li > ul'),
 						menu_a  = $('.menu > li > a');
@@ -255,7 +256,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="fashion-grid1">
 						<h6 class="best2"><a href="single.html" > Vestido </a></h6>	
-						<span class=" price-in1"> $75.00</span>
+						<span class=" price-in1"> R$75.00</span>
 					</div>		
 					<div class="clearfix"> </div>
 				</div>
@@ -296,7 +297,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen" />
 
 				<script>
-					// Can also be used with $(document).ready()
+					//transiçao das imagens
 					$(window).load(function() {
 					  $('.flexslider').flexslider({
 					    animation: "slide",
@@ -306,40 +307,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</script>
 			</div>	
 			<div class="col-md-7 single-top-in simpleCart_shelfItem">
-				<div class="single-para ">
+				<div class="single-para">
 					<h4>Vestido escuro</h4>
 					<h5 class="item_price">R$ 95.00</h5>
 					<p>Descrição breve do item.</p>
 					<div class="available">
-						<ul>
-							<li>Cor
-								<select>
-									<option>Azul</option>
-									<option>Cinza</option>
-									<option>Preto</option>
-									<option>Vermelho</option>
-								</select>
-							</li>
-							<li>Tam
-								<select>
-									<option>P</option>
-									<option>M</option>
-									<option>G</option>
-									<option>GG</option>
-								</select>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-9 amet-sed">
-						<form>
+						<div class="col-md">
+							<ul>
+								<li>
+									<select>
+										<option hidden>Cor</option>
+										<option>Azul</option>
+										<option>Cinza</option>
+										<option>Preto</option>
+										<option>Vermelho</option>
+									</select>
+								</li>
+								<li>
+									<select>
+										<option hidden>Tamanho</option>
+										<option>P</option>
+										<option>M</option>
+										<option>G</option>
+										<option>GG</option>
+									</select>
+								</li>
+							</ul>
+						</div>
+						<div class="col-md amet-sed">
 							<input type="text" placeholder="Calcular frete">
 							<input type="submit" value="Calcular">
-						</form>
+							<a href="#" class="add-cart item_add">Adicionar ao Carrinho</a>
+						</div>
 					</div>
 					<ul>
 						<div class="clearfix"> </div>
 					</ul>
-					<a href="#" class="add-cart item_add">Adicionar ao Carrinho</a>
 				</div>
 			</div>
 			<div class="clearfix"> </div>

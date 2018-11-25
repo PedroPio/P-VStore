@@ -6,15 +6,15 @@
 			/* conferir se o email ou cpf já foi cadastrado */
 			$queryCPF = mysqli_query($link, "SELECT * FROM clientes WHERE cpf= '".($cliente->getCpf())."'");
 			$queryCPFRows = mysqli_num_rows($queryCPF);
-			$queryEmail = mysqli_query($link, "SELECT email FROM clientes 
+			$queryEmail = mysqli_query($link, "SELECT * FROM clientes 
 									 WHERE email= '".($cliente->getEmail())."'");
 			$queryEmailRows = mysqli_num_rows($queryEmail);
 
 			if ($queryCPFRows > "0") {
-				die("O CPF já foi cadastrado na PeVStore.");
+				die(header("Location: ../../view/register.html"));
 			}
 			if ($queryEmailRows > "0") {
-				die("O Email já foi cadastrado na PeVStore.");
+				die(header("Location: ../../view/register.html"));
 			}
 
 			$query = "INSERT INTO clientes (nome, nascimento, cpf, email, cep, endereco, cidade, telefone, senha) values ('".($cliente->getNome())."','".($cliente->getNascimento())."',

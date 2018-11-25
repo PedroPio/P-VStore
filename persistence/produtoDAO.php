@@ -1,12 +1,16 @@
 <?php
-	include_once("../model/Cliente.php");
+	include_once("../model/produto.php");
 
-	class ClienteDAO {
-		function cadastrar($cliente, $link) {
-			$query = "INSERT INTO cliente (nome,nascimento,salario) values ('".($cliente->getNome())."','".($cliente->getNascimento())."',".($cliente->getSalario()).")";
+	class ProdutoDAO {
+		function cadastrar($produto, $link) {
+			$query = "INSERT INTO produtos (nome, marca, fornecedor, descricao, preco, quantidade) values ('".($produto->getNome())."','".($produto->getMarca())."','".($produto->getFornecedor())."',
+				'".($produto->getDescricao())."','".($produto->getPreco())."','".($produto->getQuantidade())."')";
 
-			if(!mysqli_query($link, $query)) {die("ERRO! NÃO SALVOU OS DADOS.<br /><br /><a href=\"../view/excluirCliente.html\">VOLTAR</a>");}
-			echo "DADOS SALVOS.<br /><br /><a href=\"../view/cadastrarCliente.html\">VOLTAR</a>";
+			if(!mysqli_query($link, $query)) {
+				die("Erro ao tentar cadastrar produto!");
+			}else{
+				header("Location: ../../view/registerProducts.html");
+			}
 		}
 		
 		function excluir($cod, $link) {
