@@ -45,14 +45,7 @@
 			return $result;
 		}
 		
-		function consultarN($nasc, $link) {
-			$query = "SELECT * FROM CLIENTE WHERE nascimento>='".($nasc)."'";
-			$result = mysqli_query($link, $query);
-			if(!$result) {
-				die("ERRO. NENHUM CLIENTE ENCONTRADO.<br /><br /><a href=\"../view/excluirCliente.html\">VOLTAR</a>");
-			}
-			return $result;
-		}
+		
 		
 		function alterar($cliente, $link) {
 			$query = "update cliente set nome='".($cliente->getNome())."', nascimento='".($cliente->getNascimento())."', salario=".($cliente->getSalario())." WHERE ID=".$cliente->getCodigo();

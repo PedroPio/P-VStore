@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>P&V Store</title>
-<<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <script src="../js/jquery.min.js"></script>
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />	
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../js/main.js"></script>
 <script src="../js/simpleCart.min.js"> </script>
 </head>
-
 <body>
 <!--header (duplicado em todas as páginas)-->
 <div class="header">
@@ -31,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="header-left">		
 				<ul>
-					<li ><a class="lock" href="login.html">Entrar/Registrar</a></li>
+					<li ><a class="lock"  href="login.html">Entrar/Registrar</a></li>
 				</ul>
 				<div class="cart box_1">
 					<a href="checkout.php">
@@ -39,6 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> itens)</div>
 						<img src="../images/cart.png" alt=""/></h3>
 					</a>
+					<p><a href="javascript:;" class="simpleCart_empty">Esvaziar carrinho</a></p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -182,75 +182,132 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--fim do header-->
 
 	
-<!--Registro-->
 <div class="container">
-	<div class="register">
-		<form action="../controller/cliente/cadastrarCliente.php" method="POST">
-			<h1>Registro</h1><br>
-			<div class="col-md-12 register-top-grid">
-				<h3>Informações Pessoais</h3><br>
+	<div class="check">	 
+		<h1>Meu carrinho</h1>
+		<div class="col-md-9 cart-items">
+			<script>$(document).ready(function(c) {
+					$('.close1').on('click', function(c){
+						$('.cart-header').fadeOut('slow', function(c){
+							$('.cart-header').remove();
+						});
+					});	  
+				});
+		   </script>
+
+
+		   <?php
+				include_once("../persistence/conexao.php");
+				include_once("../persistence/produtoDAO.php");
+				$conexao = new Conexao("localhost","root","","pevstore");
+				$conexao->conectar();
+
+				if(isset($_GET['acao'])){ 
+			    //ADICIONAR checkout 
+			    	if($_GET['acao'] == 'add'){ 
+			        	$idProduto = intval($_GET['idProduto']); 
+			        	if(!isset($_SESSION['checkout'][$idProduto])){ 
+			        		/*$_SESSION['checkout'][$idProduto] = 1; */
+			        		$query = "INSERT INTO carrinho (id) VALUES ('".($idProduto)."')";
+			        		if (!mysqli_query($conexao->getLink(), $query)){
+			        			die("Não foi possível adicionar no carrinho!");
+			        		}
+			      		} 
+			      		/*else { 
+			        		$_SESSION['checkout'][$idProduto] += 1; 
+			      		} */
+			    	} //REMOVER checkout 
+			  
+			    	if($_GET['acao'] == 'del'){ 
+			      		$idProduto = intval($_GET['idProduto']); 
+			      		if(isset($_SESSION['checkout'][$idProduto])){ 
+			        		unset($_SESSION['checkout'][$idProduto]); 
+			      		} 
+			    	} //ALTERAR QUANTIDADE 
+
+			    	if($_GET['acao'] == 'up'){ 
+			      		if(is_array($_POST['prod'])){ 
+			        		foreach($_POST['prod'] as $idProduto => $qtd){
+			            		$idProduto  = intval($idProduto);
+			            		$qtd = intval($qtd);
+			            		if(!empty($qtd) || $qtd != 0){
+			              			$_SESSION['checkout'][$idProduto] = $qtd;
+			            		}else{
+			              			unset($_SESSION['checkout'][$idProduto]);
+			            		}
+			        		}
+			      		}
+			    	}
+				}
+				$query = mysqli_query($conexao->getLink(), "SELECT * FROM carrinho");
+				$queryRows = mysqli_num_rows($query);
+				if(!$query) {
+					die("ERRO. NENHUM PRODUTO ENCONTRADO.");
+				}
+
+				if ($queryRows > "0"){
+					$query = mysqli_query($conexao->getLink(), "SELECT * FROM produtos, carrinho WHERE produtos.idProduto = carrinho.id");
+					$rows = mysqli_num_rows($query);
+					if(!$query) {
+						die("ERRO.");
+					}
+					for ($i=0; $i < $rows ; $i++) {
+						$result = mysqli_fetch_array($query);
+						$class0 = "close";
+						$class1 = $class0 . $result['id'];
+						echo $class1;
+						echo '<div class="cart-header">';
+						echo 	'<div class="close1"></div>';
+						echo	'<div class="cart-sec simpleCart_shelfItem">';
+						echo		'<div class="cart-item cyc">';
+						echo			 '<img src="../images/pic2.jpg" class="img-responsive" alt=""/>';
+						echo		'</div>';
+						echo		'<div class="cart-item-info">';
+						echo			'<h3><a href="#">'.$result['nome'].'</a></h3>';
+						echo			'<ul class="qty">';
+						echo				'<li><p>Size : 5</p></li>';
+						echo				'<li><p>Qty : 1</p></li>';
+						echo			'</ul>';
+						echo			'<div class="delivery">';
+						echo				'<p>Entrega feita por: (nome da transportadora)</p>';
+						echo				'<div class="clearfix"></div>';
+						echo	        '</div>';
+						echo		'</div>';
+						echo		'<div class="clearfix"></div>';
+						echo	'</div>';
+					  	echo '</div>';
+					}
+				}
+			?>
+			 	
+		</div>
+		<div class="col-md-3 cart-total">
+			<div class="price-details">
+				<h3>Detalhes da compra</h3>
+				<span>Total</span>
+				<span class="total1">R$0,00</span>
+				<span>Discoto</span>
+				<span class="total1">---</span>
+				<span>Preço do frete</span>
+				<span class="total1">R$0,00</span>
+				<div class="clearfix"></div>				 
+			</div>	
+			<ul class="total_price">
+				<li class="last_price"> <h4>TOTAL</h4></li>	
+				<li class="last_price"><span>R$0,00</span></li>
+				<div class="clearfix"> </div>
+			</ul>
+			
+			 
+			<div class="clearfix"></div>
+			<a class="order" href="#">Fechar Compra</a>
+			<div class="total-item">
+				<h3>Oções</h3>
+				<h4>Cupons</h4>
+				<a class="cpns" href="#">Usar cupom</a>
 			</div>
-			<div class="col-md-6 register-top-grid">
-				<div>
-					<span>Nome Completo</span>
-					<input type="text" name="nome" placeholder="ex: Fulano Sicrano Breltrano" required> 
-				</div>
-				<div>
-					<span>Data de Nascimento</span>
-				<input type="text" name="nascimento" placeholder="ex: 01/01/2001" required> 
-				</div>
-				<div>
-					<span>CPF</span>
-					<input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-					placeholder="ex: 111.111.111-11" required> 
-				</div>
-				<div>
-					<span>Email</span>
-					<input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-					placeholder="ex: nome@email.com" required> 
-				</div>
-			</div>
-			<div class="col-md-6 register-top-grid">
-				<div>
-					<span>CEP</span>
-					<input type="text" name="cep" placeholder="ex: 11111-111" required> 
-				</div>
-				<div>
-					<span>Endereço</span>
-					<input type="text" name="endereco" placeholder="ex: Rua Sicrano Silva, 111, Centro" required> 
-				</div>
-				<div>
-					<span>Cidade/UF</span>
-					<input type="text" name="cidade" placeholder="ex: São Paulo/SP" required> 
-				</div>
-				<div>
-					<span>Telefone</span>
-					<input type="text" name="telefone" placeholder="ex: (41)99999-9999" required> 
-				</div>
-			</div>
-			<div class="col-md-12 register-bottom-grid">
-				<h3>Segurança</h3>
-			</div>
-			<div class="col-md-6 register-bottom-grid">
-				<div>
-					<span>Senha</span>
-					<input type="password" name="senha" required>
-				</div>
-				<div>
-					<span>Confirmar Senha</span>
-					<input type="password" required>
-				</div>
-			</div>
-			<div class="col-md-8 register-top-grid">
-				<a class="news-letter" href="#"></a>
-				<label class="checkbox"><input type="checkbox" name="checkbox" checked="">
-					<i> </i>Receber novidades da P&V Store no seu email</label>
-			</div>
-			<div class="col-md-8 register-bottom-grid">
-				<input type="submit" value="Registrar">						
-			</div>
-			<div class="clearfix"> </div>
-		</form>
+		</div>
+		<div class="clearfix"> </div>
 	</div>
 </div>
 

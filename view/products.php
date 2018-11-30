@@ -21,6 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../js/simpleCart.min.js"> </script>
 </head>
 
+
 <body>
 <!--header (duplicado em todas as páginas)-->
 <div class="header">
@@ -34,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li ><a class="lock"  href="login.html">Entrar/Registrar</a></li>
 				</ul>
 				<div class="cart box_1">
-					<a href="checkout.html">
+					<a href="checkout.php">
 					<h3> <div class="total">
 						<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> itens)</div>
 						<img src="../images/cart.png" alt=""/></h3>
@@ -63,17 +64,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="h_nav">
 										<ul>
 											<h4>Roupas</h4>
-											<li><a href="products.html">Bermudas</a></li>
-											<li><a href="products.html">Bermudas Jeans</a></li>
-											<li><a href="products.html">Bonés</a></li>
-											<li><a href="products.html">Blusas</a></li>
-											<li><a href="products.html">Calças</a></li>
-											<li><a href="products.html">Camisas</a></li>
-											<li><a href="products.html">Camisetas</a></li>
-											<li><a href="products.html">Cuecas</a></li>
-											<li><a href="products.html">Moletom</a></li>
-											<li><a href="products.html">Polo</a></li>
-											<li><a href="products.html">Sunga</a></li>
+											<li><a href="products.php">Bermudas</a></li>
+											<li><a href="products.php">Bermudas Jeans</a></li>
+											<li><a href="products.php">Bonés</a></li>
+											<li><a href="products.php">Blusas</a></li>
+											<li><a href="products.php">Calças</a></li>
+											<li><a href="products.php">Camisas</a></li>
+											<li><a href="products.php">Camisetas</a></li>
+											<li><a href="products.php">Cuecas</a></li>
+											<li><a href="products.php">Moletom</a></li>
+											<li><a href="products.php">Polo</a></li>
+											<li><a href="products.php">Sunga</a></li>
 										</ul>	
 									</div>							
 								</div>
@@ -81,17 +82,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="h_nav">
 										<ul>
 											<h4>Calçados</h4>
-											<li><a href="products.html">Alpargatas</a></li>
-											<li><a href="products.html">Chinelos</a></li>
-											<li><a href="products.html">Shorts</a></li>
-											<li><a href="products.html">Chinelo Slide</a></li>
-											<li><a href="products.html">Chuteiras</a></li>
-											<li><a href="products.html">Sapatos</a></li>
-											<li><a href="products.html">Sapatênis</a></li>
-											<li><a href="products.html">Tênis</a></li>
-											<li><a href="products.html">Tênis Casual</a></li>
-											<li><a href="products.html">Tênis para Corrida</a></li>
-											<li><a href="products.html">Tênis de skate</a></li>
+											<li><a href="products.php">Alpargatas</a></li>
+											<li><a href="products.php">Chinelos</a></li>
+											<li><a href="products.php">Shorts</a></li>
+											<li><a href="products.php">Chinelo Slide</a></li>
+											<li><a href="products.php">Chuteiras</a></li>
+											<li><a href="products.php">Sapatos</a></li>
+											<li><a href="products.php">Sapatênis</a></li>
+											<li><a href="products.php">Tênis</a></li>
+											<li><a href="products.php">Tênis Casual</a></li>
+											<li><a href="products.php">Tênis para Corrida</a></li>
+											<li><a href="products.php">Tênis de skate</a></li>
 										</ul>	
 									</div>							
 								</div>
@@ -99,15 +100,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="h_nav">
 										<ul>
 											<h4>Acessórios</h4>
-											<li><a href="products.html">Boné Aba Reta</a></li>
-											<li><a href="products.html">Boné Aba Curva</a></li>
-											<li><a href="products.html">Carteiras</a></li>
-											<li><a href="products.html">Cintos</a></li>
-											<li><a href="products.html">Malas</a></li>
-											<li><a href="products.html">Mochilas</a></li>
-											<li><a href="products.html">Óculos de Sol</a></li>
-											<li><a href="products.html">Pulseiras e Colares</a></li>
-											<li><a href="products.html">Relógios</a></li>
+											<li><a href="products.php">Boné Aba Reta</a></li>
+											<li><a href="products.php">Boné Aba Curva</a></li>
+											<li><a href="products.php">Carteiras</a></li>
+											<li><a href="products.php">Cintos</a></li>
+											<li><a href="products.php">Malas</a></li>
+											<li><a href="products.php">Mochilas</a></li>
+											<li><a href="products.php">Óculos de Sol</a></li>
+											<li><a href="products.php">Pulseiras e Colares</a></li>
+											<li><a href="products.php">Relógios</a></li>
 										</ul>	
 									</div>												
 								</div>
@@ -121,16 +122,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="h_nav">
 										<ul>
 											<h4>Roupas</h4>
-											<li><a href="products.html">Biquínis</a></li>
-											<li><a href="products.html">Blusas</a></li>
-											<li><a href="products.html">Calça Jeans</a></li>
-											<li><a href="products.html">Camisetas</a></li>
-											<li><a href="products.html">Macacão</a></li>
-											<li><a href="products.html">Maiôs</a></li>
-											<li><a href="products.html">Moletom</a></li>
-											<li><a href="products.html">Saias</a></li>
-											<li><a href="products.html">Shorts</a></li>
-											<li><a href="products.html">Vestidos</a></li>
+											<li><a href="products.php">Biquínis</a></li>
+											<li><a href="products.php">Blusas</a></li>
+											<li><a href="products.php">Calça Jeans</a></li>
+											<li><a href="products.php">Camisetas</a></li>
+											<li><a href="products.php">Macacão</a></li>
+											<li><a href="products.php">Maiôs</a></li>
+											<li><a href="products.php">Moletom</a></li>
+											<li><a href="products.php">Saias</a></li>
+											<li><a href="products.php">Shorts</a></li>
+											<li><a href="products.php">Vestidos</a></li>
 										</ul>	
 									</div>							
 								</div>
@@ -138,16 +139,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="h_nav">
 										<ul>
 											<h4>Calçados</h4>
-											<li><a href="products.html">Alpargatas</a></li>
-											<li><a href="products.html">Chinelos</a></li>
-											<li><a href="products.html">Rasteirinhas</a></li>
-											<li><a href="products.html">Sandálias</a></li>
-											<li><a href="products.html">Sapatilhas</a></li>
-											<li><a href="products.html">Sapatos</a></li>
-											<li><a href="products.html">Tênis</a></li>
-											<li><a href="products.html">Tênis Casual</a></li>
-											<li><a href="products.html">Tênis para Corrida</a></li>
-											<li><a href="products.html">Tênis de skate</a></li>
+											<li><a href="products.php">Alpargatas</a></li>
+											<li><a href="products.php">Chinelos</a></li>
+											<li><a href="products.php">Rasteirinhas</a></li>
+											<li><a href="products.php">Sandálias</a></li>
+											<li><a href="products.php">Sapatilhas</a></li>
+											<li><a href="products.php">Sapatos</a></li>
+											<li><a href="products.php">Tênis</a></li>
+											<li><a href="products.php">Tênis Casual</a></li>
+											<li><a href="products.php">Tênis para Corrida</a></li>
+											<li><a href="products.php">Tênis de skate</a></li>
 										</ul>	
 									</div>							
 								</div>
@@ -155,17 +156,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="h_nav">
 										<ul>
 											<h4>Acessórios</h4>
-											<li><a href="products.html">Bijuterias</a></li>
-											<li><a href="products.html">Bolsas</a></li>
-											<li><a href="products.html">Bonés</a></li>
-											<li><a href="products.html">Carteiras</a></li>
-											<li><a href="products.html">Cintos</a></li>
-											<li><a href="products.html">Nécessaire</a></li>
-											<li><a href="products.html">Malas</a></li>
-											<li><a href="products.html">Mochilas</a></li>
-											<li><a href="products.html">Óculos de Sol</a></li>
-											<li><a href="products.html">Pulseiras e Colares</a></li>
-											<li><a href="products.html">Relógios</a></li>
+											<li><a href="products.php">Bijuterias</a></li>
+											<li><a href="products.php">Bolsas</a></li>
+											<li><a href="products.php">Bonés</a></li>
+											<li><a href="products.php">Carteiras</a></li>
+											<li><a href="products.php">Cintos</a></li>
+											<li><a href="products.php">Nécessaire</a></li>
+											<li><a href="products.php">Malas</a></li>
+											<li><a href="products.php">Mochilas</a></li>
+											<li><a href="products.php">Óculos de Sol</a></li>
+											<li><a href="products.php">Pulseiras e Colares</a></li>
+											<li><a href="products.php">Relógios</a></li>
 										</ul>	
 									</div>												
 								</div>
@@ -276,115 +277,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!--fim destaques laterais-->
 
 		<div class="col-md-9 product1">
-			<div class=" bottom-product">
-				<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-					<div class="product-at ">
-						<a href="single.html"><img class="img-responsive" src="../images/pi3.jpg" alt="">
-							<div class="pro-grid">
-								<span class="buy-in">Comprar</span>
-							</div>
-						</a>	
-					</div>
-						<p class="tun">Descrição do item</p>
-						<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>						
+			<div class="col-md-12">
+				<div class="bottom-product bottom-cd simpleCart_shelfItem">
+					<!-- Inicio do espaco de produtos -->
+					<?php
+						include_once("../persistence/conexao.php");
+						include_once("../persistence/produtoDAO.php");
+						$conexao = new Conexao("localhost","root","","pevstore");
+						$conexao->conectar();
+						$produtodao = new ProdutoDAO();
+						$produtodao->montarCatalogo($conexao->getLink());
+					?>
+					<!-- Fim do espaco de produtos -->
 				</div>
-				<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-					<div class="product-at ">
-						<a href="single.html"><img class="img-responsive" src="../images/pi1.jpg" alt="">
-							<div class="pro-grid">
-								<span class="buy-in">Comprar</span>
-							</div>
-						</a>	
-					</div>
-					<p class="tun">Descrição do item</p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>
-				</div>
-					<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-						<div class="product-at ">
-							<a href="single.html"><img class="img-responsive" src="../images/pi4.jpg" alt="">
-								<div class="pro-grid">
-									<span class="buy-in">Comprar</span>
-								</div>
-							</a>	
-						</div>
-						<p class="tun">Descrição do item</p>
-						<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>
-					</div>
-						<div class="clearfix"> </div>
 			</div>
-			<div class=" bottom-product">
-				<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-					<div class="product-at ">
-						<a href="single.html"><img class="img-responsive" src="../images/pi5.jpg" alt="">
-							<div class="pro-grid">
-								<span class="buy-in">Comprar</span>
-							</div>
-						</a>	
-					</div>
-					<p class="tun">Descrição do item</p>
-					<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>
-				</div>
-					<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-						<div class="product-at ">
-							<a href="single.html"><img class="img-responsive" src="../images/pi.jpg" alt="">
-								<div class="pro-grid">
-									<span class="buy-in">Comprar</span>
-								</div>
-							</a>	
-						</div>
-						<p class="tun">Descrição do item</p>
-						<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>					
-					</div>
-					<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-						<div class="product-at ">
-							<a href="single.html"><img class="img-responsive" src="../images/pi1.jpg" alt="">
-							<div class="pro-grid">
-								<span class="buy-in">Comprar</span>
-							</div>
-							</a>	
-						</div>
-						<p class="tun">Descrição do item</p>
-						<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>
-					</div>
-						<div class="clearfix"> </div>
-			</div>
-				<div class=" bottom-product">
-					<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-						<div class="product-at ">
-							<a href="single.html"><img class="img-responsive" src="../images/pi3.jpg" alt="">
-								<div class="pro-grid">
-									<span class="buy-in">Comprar</span>
-								</div>
-							</a>	
-						</div>
-						<p class="tun">Descrição do item</p>
-						<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>
-					</div>
-					<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-						<div class="product-at ">
-							<a href="single.html"><img class="img-responsive" src="../images/pi4.jpg" alt="">
-								<div class="pro-grid">
-									<span class="buy-in">Comprar</span>
-								</div>
-							</a>	
-						</div>
-						<p class="tun">Descrição do item</p>
-						<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>					
-					</div>
-					<div class="col-md-4 bottom-cd simpleCart_shelfItem">
-						<div class="product-at ">
-							<a href="single.html"><img class="img-responsive" src="../images/pi5.jpg" alt="">
-								<div class="pro-grid">
-									<span class="buy-in">Comprar</span>
-								</div>
-							</a>	
-						</div>
-						<p class="tun">Descrição do item</p>
-						<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>					
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				
 		</div>
 		<div class="clearfix"> </div>
 		<nav class="in">
@@ -442,4 +348,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--fim do rodapé-->
 </body>
 </html>
-			
