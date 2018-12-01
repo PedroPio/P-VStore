@@ -186,19 +186,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="check">	 
 		<h1>Meu carrinho</h1>
 		<div class="col-md-9 cart-items">
-			<script>$(document).ready(function(c) {
-					$('.close1').on('click', function(c){
-						$('.cart-header').fadeOut('slow', function(c){
-							$('.cart-header').remove();
-						});
-					});	  
-				});
+			<script>
+				function a(id) {
+					var element = document.getElementById(id);
+    				fade(element);
+    				
+				}
+
+				function fade(element) {
+				    var op = 1;
+				    var timer = setInterval(function () {
+				        if (op <= 0.1){
+				            clearInterval(timer);
+				            element.style.display = 'none';
+				        }
+				        element.style.opacity = op;
+				        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+				        op -= op * 0.1;
+				    }, 50);
+				}
+
+
 		   </script>
 
 
 		   <?php
 				include_once("../persistence/conexao.php");
-				include_once("../persistence/produtoDAO.php");
 				$conexao = new Conexao("localhost","root","","pevstore");
 				$conexao->conectar();
 
@@ -253,10 +266,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					}
 					for ($i=0; $i < $rows ; $i++) {
 						$result = mysqli_fetch_array($query);
-						$class0 = "close";
-						$class1 = $class0 . $result['id'];
-						echo $class1;
-						echo '<div class="cart-header">';
+						echo '<div id="'.$result['id'].'" class="cart-header" onclick="a('.$result['id'].')">';
 						echo 	'<div class="close1"></div>';
 						echo	'<div class="cart-sec simpleCart_shelfItem">';
 						echo		'<div class="cart-item cyc">';
