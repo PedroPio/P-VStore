@@ -1,3 +1,15 @@
+<?php 
+session_start();
+if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
+{
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  //header('location:login.php');
+  }
+ 
+$logado = $_SESSION['login'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -187,14 +199,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="account-pass">
 				<div class="col-md-6 account-top">
 					<h1>Conta</h1>
-					<form action="pagInicial.php" method="POST">
+					<form action="session.php" method="POST">
 						<div> 	
 							<span>Email</span>
-							<input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
+							<input value="login" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
 						</div>
 						<div> 
 							<span >Senha</span>
-							<input type="password">
+							<input value="senha" type="password">
 						</div>				
 							<input type="submit" value="Login"> 
 					</form>
