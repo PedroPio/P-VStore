@@ -14,7 +14,7 @@ $logado = $_SESSION['login'];
 <html>
 <head>
 <title>P&V Store</title>
-<<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <script src="../js/jquery.min.js"></script>
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />	
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -216,18 +216,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
 					placeholder="ex: 111.111.111-11" required> 
 				</div>
-			</div>
-			<div class="col-md-6 register-top-grid">
 				<div>
 					<span>Email</span>
 					<input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 					placeholder="ex: nome@email.com" required> 
 				</div>
-				<div>
-					<span>Telefone</span>
-					<input type="text" name="telefone" placeholder="ex: (41)99999-9999" required> 
 				</div>
-			</div>
 			<div class="col-md-12 register-bottom-grid">
 				<h3>Segurança</h3>
 			</div>

@@ -202,11 +202,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<form action="session.php" method="POST">
 						<div> 	
 							<span>Email</span>
-							<input value="login" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
+							<input name="login" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
 						</div>
 						<div> 
 							<span >Senha</span>
-							<input value="senha" type="password">
+							<input name="senha" type="password">
 						</div>				
 							<input type="submit" value="Login"> 
 					</form>
