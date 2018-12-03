@@ -20,8 +20,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../js/main.js"></script>
 <script src="../js/simpleCart.min.js"> </script>
 </head>
-
-
 <body>
 <!--header (duplicado em todas as páginas)-->
 <div class="header">
@@ -50,13 +48,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="head-top">
 			<div class="search">
 				<form>
-					<input type="text" name="search" value="Buscar na loja..." autocomplete="off" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Buscar na loja...';}">
+					<input type="text" name="search" value="Buscar na loja..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Buscar na loja...';}">
 				</form>
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
-					<!--Link início não aparece na tela inicial (pagInicial.php)-->
-					<li class="active grid"><a class="color8" href="pagInicial.php">Início</a></li>
+					<!--Link início não aparece na tela inicial -->
+					<li class="active grid"><a class="color8" href="pagInicial.php"Buscar na loja..." autocomplete="off"">Início</a></li>
 					<li><a class="color1" href="#">Homem</a>
 						<div class="mepanel">
 							<div class="row">
@@ -181,12 +179,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--fim do header-->
-
 	
 <!--Corpo-->
 <div class="product">
 	<div class="container">
-		<div class="col-md-3 product-price">		
+		<div class="col-md-3 product-price">	  
 			<div class=" rsidebar span_1_of_left">
 				<!--Destaques laterais-->
 				<div class="of-left">
@@ -218,6 +215,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 			<script type="text/javascript">
+				//menu de categorias
 				$(function() {
 					var menu_ul = $('.menu > li > ul'),
 						menu_a  = $('.menu > li > a');
@@ -258,7 +256,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="fashion-grid1">
 						<h6 class="best2"><a href="single.php" > Vestido </a></h6>	
-						<span class=" price-in1"> $75.00</span>
+						<span class=" price-in1"> R$75.00</span>
 					</div>		
 					<div class="clearfix"> </div>
 				</div>
@@ -276,38 +274,155 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!--fim destaques laterais-->
 
-		<div class="col-md-9 product1">
-			<div class="col-md-12">
-				<div class="bottom-product bottom-cd simpleCart_shelfItem">
-					<!-- Inicio do espaco de produtos -->
-					<?php
-						include_once("../persistence/conexao.php");
-						include_once("../persistence/produtoDAO.php");
-						$conexao = new Conexao("localhost","root","","pevstore");
-						$conexao->conectar();
-						$produtodao = new ProdutoDAO();
-						$produtodao->montarCatalogo($conexao->getLink());
-					?>
-					<!-- Fim do espaco de produtos -->
+		<div class="col-md-9 product-price1">
+			<div class="col-md-5 single-top">	
+				<div class="flexslider">
+				  	<ul class="slides">
+					    <li data-thumb="../images/si.jpg">
+					      <img src="../images/si.jpg" />
+					    </li>
+					    <li data-thumb="../images/si1.jpg">
+					      <img src="../images/si1.jpg" />
+					    </li>
+					    <li data-thumb="../images/si2.jpg">
+					      <img src="../images/si2.jpg" />
+					    </li>
+					    <li data-thumb="../images/si.jpg">
+					      <img src="../images/si.jpg" />
+					    </li>
+				  	</ul>
 				</div>
+
+				<script defer src="../js/jquery.flexslider.js"></script>
+				<link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen" />
+
+				<script>
+					//transiçao das imagens
+					$(window).load(function() {
+					  $('.flexslider').flexslider({
+					    animation: "slide",
+					    controlNav: "thumbnails"
+					  });
+					});
+				</script>
+			</div>	
+			<div class="col-md-7 single-top-in simpleCart_shelfItem">
+				<div class="single-para">
+					<h4>Vestido escuro</h4>
+					<h5 class="item_price">R$ 95.00</h5>
+					<p>Descrição breve do item.</p>
+					<div class="available">
+						<div class="col-md">
+							<ul>
+								<li>
+									<select>
+										<option hidden>Cor</option>
+										<option>Azul</option>
+										<option>Cinza</option>
+										<option>Preto</option>
+										<option>Vermelho</option>
+									</select>
+								</li>
+								<li>
+									<select>
+										<option hidden>Tamanho</option>
+										<option>P</option>
+										<option>M</option>
+										<option>G</option>
+										<option>GG</option>
+									</select>
+								</li>
+							</ul>
+						</div>
+						<div class="col-md amet-sed">
+							<input type="text" placeholder="Calcular frete">
+							<input type="submit" value="Calcular">
+							<a href="#" class="add-cart item_add">Adicionar ao Carrinho</a>
+						</div>
+					</div>
+					<ul>
+						<div class="clearfix"> </div>
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+			
+			<div class="cd-tabs">
+				<nav>
+					<ul class="cd-tabs-navigation">
+						<li><a data-content="fashion"  href="#0">Descrição </a></li>
+						<li><a data-content="cinema" href="#0" >Informações adicionais</a></li>
+						<li><a data-content="television" href="#0" class="selected ">Comentários</a></li>
+					</ul> 
+				</nav>
+				<ul class="cd-tabs-content">
+					<li data-content="fashion" >
+						<div class="facts">
+							<p>Descrição detalhada do item.</p>
+						</div>
+					</li>
+					<li data-content="cinema" >
+						<div class="facts1">
+							<div class="color"><p>Cores</p>
+								<span >Azul, Cinza, Preto, Vermelho</span>
+								<div class="clearfix"></div>
+							</div>
+							<div class="color">
+								<p>Tamanhos</p>
+								<span >P, M, G, GG</span>
+								<div class="clearfix"></div>
+							</div>   
+				 		</div>
+				 	</li>
+
+					<li data-content="television" class="selected">
+						<a class="add-re" href="#">Comentar</a>
+					</li>
+					<div class="clearfix"></div>
+				</ul> 
+			</div> 
+			<div class=" bottom-product">
+				<div class="col-md-4 bottom-cd simpleCart_shelfItem">
+					<div class="product-at ">
+						<a href="#"><img class="img-responsive" src="../images/pi3.jpg" alt="">
+							<div class="pro-grid">
+								<span class="buy-in">Comprar</span>
+							</div>
+						</a>	
+					</div>
+					<p class="tun">Descrição do item.</p>
+					<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>						
+				</div>
+				<div class="col-md-4 bottom-cd simpleCart_shelfItem">
+					<div class="product-at ">
+						<a href="#"><img class="img-responsive" src="../images/pi1.jpg" alt="">
+							<div class="pro-grid">
+								<span class="buy-in">Comprar</span>
+							</div>
+						</a>	
+					</div>
+					<p class="tun">Descrição do item.</p>
+					<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>
+				</div>
+				<div class="col-md-4 bottom-cd simpleCart_shelfItem">
+					<div class="product-at ">
+						<a href="#"><img class="img-responsive" src="../images/pi4.jpg" alt="">
+							<div class="pro-grid">
+								<span class="buy-in">Comprar</span>
+							</div>
+						</a>	
+					</div>
+					<p class="tun">Descrição do item.</p>
+					<a href="#" class="item_add"><p class="number item_price"><i> </i>R$150.00</p></a>
+				</div>
+					<div class="clearfix"> </div>
 			</div>
 		</div>
 		<div class="clearfix"> </div>
-		<nav class="in">
-			<ul class="pagination">
-				<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-				<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-				<li><a href="#">2 <span class="sr-only"></span></a></li>
-				<li><a href="#">3 <span class="sr-only"></span></a></li>
-				<li><a href="#">4 <span class="sr-only"></span></a></li>
-				<li><a href="#">5 <span class="sr-only"></span></a></li>
-				<li> <a href="#" aria-label="Next"><span aria-hidden="true">»</span> </a> </li>
-			</ul>
-		</nav>
 	</div>
 </div>
 <!--fim corpo-->
-			
+
 <!--Rodapé (duplicado em todas páginas)-->
 <div class="footer">
 	<div class="container">
@@ -348,3 +463,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--fim do rodapé-->
 </body>
 </html>
+			

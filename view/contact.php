@@ -26,11 +26,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header-top">
 		<div class="container">
 			<div class="logo">
-				<a href="pagInicial.html"><img src="../images/logo.png" alt=""></a>	
+				<a href="pagInicial.php"><img src="../images/logo.png" alt=""></a>	
 			</div>
 			<div class="header-left">		
 				<ul>
-					<li ><a class="lock"  href="login.html">Entrar/Registrar</a></li>
+					<li ><a class="lock"  href="login.php">Entrar/Registrar</a></li>
 				</ul>
 				<div class="cart box_1">
 					<a href="checkout.php">
@@ -53,8 +53,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
-					<!--Link início não aparece na tela inicial (pagInicial.html)-->
-					<li class="active grid"><a class="color8" href="pagInicial.html">Início</a></li>
+					<!--Link início não aparece na tela inicial (pagInicial.php)-->
+					<li class="active grid"><a class="color8" href="pagInicial.php">Início</a></li>
 					<li><a class="color1" href="#">Homem</a>
 						<div class="mepanel">
 							<div class="row">
@@ -171,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 					</li>
-					<li><a class="color6" href="contact.html">Contato</a></li>
+					<li><a class="color6" href="contact.php">Contato</a></li>
 				</ul> 
 			</div>
 			<div class="clearfix"> </div>
@@ -231,7 +231,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul class="nav-bottom">
 					<li><a href="#">Como comprar</a></li>
 					<li><a href="#">FAQ</a></li>
-					<li><a href="contact.html">Localização</a></li>
+					<li><a href="contact.php">Localização</a></li>
 					<li><a href="#">Entrega</a></li>
 					<li><a href="#">Trabalhe conosco</a></li>	
 				</ul>	

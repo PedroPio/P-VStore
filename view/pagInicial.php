@@ -23,11 +23,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header-top">
 		<div class="container">
 			<div class="logo">
-				<a href="pagInicial.html"><img src="../images/logo.png" alt=""></a>	
+				<a href="pagInicial.php"><img src="../images/logo.png" alt=""></a>	
 			</div>
 			<div class="header-left">		
 				<ul>
-					<li ><a class="lock"  href="login.html">Entrar/Registrar</a></li>
+					<li ><a class="lock"  href="login.php">Entrar/Registrar</a></li>
 				</ul>
 				<div class="cart box_1">
 					<a href="checkout.php">
@@ -166,7 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 					</li>
-					<li><a class="color6" href="contact.html">Contato</a></li>
+					<li><a class="color6" href="contact.php">Contato</a></li>
 				</ul> 
 			</div>
 			<div class="clearfix"> </div>
@@ -196,21 +196,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="banner-text">
 						<h3>Promoções de Natal</h3>
 						<p>Venha presentear toda a família com as promoções de Natal da P&V Store!</p>
-						<a href="single.html">Conferir</a>
+						<a href="single.php">Conferir</a>
 					</div>
 				</li>
 				<li>
 					<div class="banner-text">
 						<h3>Promoção fim de inverno</h3>
 						<p>Itens que sairão de modas com descontaços nos preços!</p>
-						<a href="single.html">Conferir</a>
+						<a href="single.php">Conferir</a>
 					</div>
 				</li>
 				<li>
 					<div class="banner-text">
 						<h3>Lançamentos Verão</h3>
 						<p>Aproveite as novas linhas preparadas para o verão!</p>
-						<a href="single.html">Conferir</a>
+						<a href="single.php">Conferir</a>
 					</div>
 				</li>
 			</ul>
@@ -226,67 +226,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h1>Destaques</h1>
 			<div class="grid-in">
 				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi.jpg" alt="">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi.jpg" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-left    b-delay03 ">
 									<span>Camisas</span>	
 							</h3>
 						</div>
 					</a>
-					<p><a href="single.html">Camisas populares</a></p>
+					<p><a href="single.php">Camisas populares</a></p>
 				</div>
 				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi1.jpg" alt="">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi1.jpg" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-left    b-delay03 ">
 								<span>Tênis</span>	
 							</h3>
 						</div>
 					</a>
-					<p><a href="single.html">Tênis corrida</a></p>
+					<p><a href="single.php">Tênis corrida</a></p>
 				</div>
 				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi2.jpg" alt="">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi2.jpg" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-left    b-delay03 ">
 								<span>Mochila</span>	
 							</h3>
 						</div>
 					</a>
-					<p><a href="single.html">Mochilas escolares</a></p>
+					<p><a href="single.php">Mochilas escolares</a></p>
 				</div>
 					<div class="clearfix"> </div>
 			</div>
 			<div class="grid-in">
 				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi3.jpg" alt="">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi3.jpg" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-left    b-delay03 ">
 								<span>Agasalhos</span>	
 							</h3>
 						</div>
 					</a>
-					<p><a href="single.html">Jaquetas</a></p>
+					<p><a href="single.php">Jaquetas</a></p>
 				</div>
 				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi4.jpg" alt="">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi4.jpg" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-left    b-delay03 ">
 								<span>Bolsas</span>	
 							</h3>
 						</div>
 					</a>
-					<p><a href="single.html">Bolsas de utensílios</a></p>
+					<p><a href="single.php">Bolsas de utensílios</a></p>
 				</div>
 				<div class="col-md-4 grid-top">
-					<a href="single.html" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi5.jpg" alt="">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi5.jpg" alt="">
 						<div class="b-wrapper">
 							<h3 class="b-animate b-from-left    b-delay03 ">
 								<span>Tênis</span>	
 							</h3>
 						</div>
 					</a>
-					<p><a href="single.html">Tênis para academia</a></p>
+					<p><a href="single.php">Tênis para academia</a></p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -315,7 +315,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul class="nav-bottom">
 					<li><a href="#">Como comprar</a></li>
 					<li><a href="#">FAQ</a></li>
-					<li><a href="contact.html">Localização</a></li>
+					<li><a href="contact.php">Localização</a></li>
 					<li><a href="#">Entrega</a></li>
 					<li><a href="#">Trabalhe conosco</a></li>	
 				</ul>	

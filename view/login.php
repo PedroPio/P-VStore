@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>P&V Store</title>
-<<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <script src="../js/jquery.min.js"></script>
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />	
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,18 +20,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../js/main.js"></script>
 <script src="../js/simpleCart.min.js"> </script>
 </head>
-
 <body>
 <!--header (duplicado em todas as páginas)-->
 <div class="header">
 	<div class="header-top">
 		<div class="container">
 			<div class="logo">
-				<a href="pagInicial.html"><img src="../images/logo.png" alt=""></a>	
+				<a href="pagInicial.php"><img src="../images/logo.png" alt=""></a>	
 			</div>
 			<div class="header-left">		
 				<ul>
-					<li ><a class="lock" href="login.html">Entrar/Registrar</a></li>
+					<li ><a class="lock"  href="login.php">Entrar/Registrar</a></li>
 				</ul>
 				<div class="cart box_1">
 					<a href="checkout.php">
@@ -54,8 +53,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
-					<!--Link início não aparece na tela inicial (pagInicial.html)-->
-					<li class="active grid"><a class="color8" href="pagInicial.html">Início</a></li>
+					<!--Link início não aparece na tela inicial (pagInicial.php)-->
+					<li class="active grid"><a class="color8" href="pagInicial.php">Início</a></li>
 					<li><a class="color1" href="#">Homem</a>
 						<div class="mepanel">
 							<div class="row">
@@ -172,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 					</li>
-					<li><a class="color6" href="contact.html">Contato</a></li>
+					<li><a class="color6" href="contact.php">Contato</a></li>
 				</ul> 
 			</div>
 			<div class="clearfix"> </div>
@@ -182,76 +181,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--fim do header-->
 
 	
-<!--Registro-->
+<!--content-->
 <div class="container">
-	<div class="register">
-		<form action="../controller/cliente/cadastrarCliente.php" method="POST">
-			<h1>Registro</h1><br>
-			<div class="col-md-12 register-top-grid">
-				<h3>Informações Pessoais</h3><br>
+		<div class="account">
+			<div class="account-pass">
+				<div class="col-md-6 account-top">
+					<h1>Conta</h1>
+					<form action="pagInicial.php" method="POST">
+						<div> 	
+							<span>Email</span>
+							<input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
+						</div>
+						<div> 
+							<span >Senha</span>
+							<input type="password">
+						</div>				
+							<input type="submit" value="Login"> 
+					</form>
+				</div>
+				<div class="col-md-2">
+					<div class="line-behind-text" data-context-show="sign-up-input"><span class="text"></span></div>
+				</div>
+				<div class="col-md-4 left-account ">
+					<h1>Criar conta</h1>
+					<a href="register.php" class="create">Prosseguir</a>
+				</div>
+				<div class="clearfix"> </div>
 			</div>
-			<div class="col-md-6 register-top-grid">
-				<div>
-					<span>Nome Completo</span>
-					<input type="text" name="nome" placeholder="ex: Fulano Sicrano Breltrano" required> 
-				</div>
-				<div>
-					<span>Data de Nascimento</span>
-				<input type="text" name="nascimento" placeholder="ex: 01/01/2001" required> 
-				</div>
-				<div>
-					<span>CPF</span>
-					<input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-					placeholder="ex: 111.111.111-11" required> 
-				</div>
-				<div>
-					<span>Email</span>
-					<input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-					placeholder="ex: nome@email.com" required> 
-				</div>
-			</div>
-			<div class="col-md-6 register-top-grid">
-				<div>
-					<span>CEP</span>
-					<input type="text" name="cep" placeholder="ex: 11111-111" required> 
-				</div>
-				<div>
-					<span>Endereço</span>
-					<input type="text" name="endereco" placeholder="ex: Rua Sicrano Silva, 111, Centro" required> 
-				</div>
-				<div>
-					<span>Cidade/UF</span>
-					<input type="text" name="cidade" placeholder="ex: São Paulo/SP" required> 
-				</div>
-				<div>
-					<span>Telefone</span>
-					<input type="text" name="telefone" placeholder="ex: (41)99999-9999" required> 
-				</div>
-			</div>
-			<div class="col-md-12 register-bottom-grid">
-				<h3>Segurança</h3>
-			</div>
-			<div class="col-md-6 register-bottom-grid">
-				<div>
-					<span>Senha</span>
-					<input type="password" name="senha" required>
-				</div>
-				<div>
-					<span>Confirmar Senha</span>
-					<input type="password" required>
-				</div>
-			</div>
-			<div class="col-md-8 register-top-grid">
-				<a class="news-letter" href="#"></a>
-				<label class="checkbox"><input type="checkbox" name="checkbox" checked="">
-					<i> </i>Receber novidades da P&V Store no seu email</label>
-			</div>
-			<div class="col-md-8 register-bottom-grid">
-				<input type="submit" value="Registrar">						
-			</div>
-			<div class="clearfix"> </div>
-		</form>
-	</div>
+		</div>
+
 </div>
 
 <!--Rodapé (duplicado em todas páginas)-->
@@ -263,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul class="nav-bottom">
 					<li><a href="#">Como comprar</a></li>
 					<li><a href="#">FAQ</a></li>
-					<li><a href="contact.html">Localização</a></li>
+					<li><a href="contact.php">Localização</a></li>
 					<li><a href="#">Entrega</a></li>
 					<li><a href="#">Trabalhe conosco</a></li>	
 				</ul>	

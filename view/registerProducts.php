@@ -25,7 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header-top">
 		<div class="container">
 			<div class="logo">
-				<a href="pagInicial.html"><img src="../images/logo.png" alt=""></a>	
+				<a href="pagInicial.php"><img src="../images/logo.png" alt=""></a>	
 			</div>
 		</div>
 	</div>
@@ -59,27 +59,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="text" name="descricao" required> 
 				</div>
 				<div>
-					<span>Preço</span>
-					<input type="text" name="preco" required> 
+					<span>Preço de compra</span>
+					<input type="text" name="precoCompra" required> 
+				</div>
+				<div>
+					<span>Preço de venda</span>
+					<input type="text" name="precoVenda" required> 
 				</div>
 				<div>
 					<span>Quantidade</span>
 					<input type="number" name="quantidade" min="1" required> 
 				</div>
 				<div class="col-md register-bottom-grid">
-					<input type="submit" value="Registrar" onclick="return clicked();"><br><br>
+					<input type="submit" value="Registrar"><br><br>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 		</form>
 	</div>
 </div>
-<script type="text/javascript">
-	function clicked() {
-    var name = document.getElementById('nome').value;
-    return alert(name + ' cadastrado com sucesso!');
-  }
-</script>
 
 <!--Rodapé (duplicado em todas páginas)-->
 <div class="footer">
@@ -90,7 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<ul class="nav-bottom">
 					<li><a href="#">Como comprar</a></li>
 					<li><a href="#">FAQ</a></li>
-					<li><a href="contact.html">Localização</a></li>
+					<li><a href="contact.php">Localização</a></li>
 					<li><a href="#">Entrega</a></li>
 					<li><a href="#">Trabalhe conosco</a></li>	
 				</ul>	

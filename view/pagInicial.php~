@@ -15,15 +15,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="../js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
- 
-
-<script src="../js/main.js"></script>
 <script src="../js/simpleCart.min.js"> </script>
 </head>
-
-
 <body>
-<!--header (duplicado em todas as páginas)-->
+
 <div class="header">
 	<div class="header-top">
 		<div class="container">
@@ -55,8 +50,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class=" h_menu4">
 				<ul class="memenu skyblue">
-					<!--Link início não aparece na tela inicial (pagInicial.php)-->
-					<li class="active grid"><a class="color8" href="pagInicial.php">Início</a></li>
 					<li><a class="color1" href="#">Homem</a>
 						<div class="mepanel">
 							<div class="row">
@@ -182,132 +175,137 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--fim do header-->
 
-	
-<!--Corpo-->
-<div class="product">
+<!--Banner-->
+<div class="banner">
 	<div class="container">
-		<div class="col-md-3 product-price">		
-			<div class=" rsidebar span_1_of_left">
-				<!--Destaques laterais-->
-				<div class="of-left">
-					<h3 class="cate">Categorias</h3>
-				</div>
-				<ul class="menu">
-					<li class="item1"><a href="#">Homens </a>
-						<ul class="cute">
-							<li class="subitem1"><a href="single.php">subcategoria</a></li>
-							<li class="subitem2"><a href="single.php">subcategoria</a></li>
-							<li class="subitem3"><a href="single.php">subcategoria</a></li>
-						</ul>
-					</li>
-					<li class="item2"><a href="#">Mulheres </a>
-						<ul class="cute">
-							<li class="subitem1"><a href="single.php">subcategoria</a></li>
-							<li class="subitem2"><a href="single.php">subcategoria</a></li>
-							<li class="subitem3"><a href="single.php">subcategoria</a></li>
-						</ul>
-					</li>
-					<li class="item3"><a href="#">Crianças</a>
-						<ul class="cute">
-							<li class="subitem1"><a href="single.php">subcategoria</a></li>
-							<li class="subitem2"><a href="single.php">subcategoria</a></li>
-							<li class="subitem3"><a href="single.php">subcategoria</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-
-			<script type="text/javascript">
-				$(function() {
-					var menu_ul = $('.menu > li > ul'),
-						menu_a  = $('.menu > li > a');
-					menu_ul.hide();
-					menu_a.click(function(e) {
-						e.preventDefault();
-						if(!$(this).hasClass('active')) {
-							menu_a.removeClass('active');
-							menu_ul.filter(':visible').slideUp('normal');
-							$(this).addClass('active').next().stop(true,true).slideDown('normal');
-						} else {
-							$(this).removeClass('active');
-							$(this).next().stop(true,true).slideUp('normal');
-						}
+		<script src="../js/responsiveslides.min.js"></script>
+			<script>
+				$(function () {
+					$("#slider").responsiveSlides({
+						auto: true,
+						nav: true,
+						speed: 500,
+						namespace: "callbacks",
+						pager: true,
 					});
-				
 				});
 			</script>
-
-			<div class="product-bottom">
-				<div class="of-left-in">
-					<h3 class="best">Destaques</h3>
-				</div>
-				<div class="product-go">
-					<div class=" fashion-grid">
-						<a href="single.php"><img class="img-responsive " src="../images/p1.jpg" alt=""></a>
-								
+		<div id="top" class="callbacks_container">
+			<ul class="rslides" id="slider">
+				<li>
+					<div class="banner-text">
+						<h3>Promoções de Natal</h3>
+						<p>Venha presentear toda a família com as promoções de Natal da P&V Store!</p>
+						<a href="single.php">Conferir</a>
 					</div>
-					<div class=" fashion-grid1">
-						<h6 class="best2"><a href="single.php" > Chapéu </a></h6>	
-							<span class=" price-in1"> R$40.00</span>
-					</div>		
-						<div class="clearfix"> </div>
-				</div>
-				<div class="product-go">
-					<div class=" fashion-grid">
-						<a href="single.php"><img class="img-responsive " src="../images/p2.jpg" alt=""></a>								
+				</li>
+				<li>
+					<div class="banner-text">
+						<h3>Promoção fim de inverno</h3>
+						<p>Itens que sairão de modas com descontaços nos preços!</p>
+						<a href="single.php">Conferir</a>
 					</div>
-					<div class="fashion-grid1">
-						<h6 class="best2"><a href="single.php" > Vestido </a></h6>	
-						<span class=" price-in1"> $75.00</span>
-					</div>		
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-			
-			<div class=" per1">
-				<a href="single.php" ><img class="img-responsive" src="../images/pro.jpg" alt="">
-					<div class="six1">
-						<h4>Desconto</h4>
-						<p>de até</p>
-						<span>60%</span>
+				</li>
+				<li>
+					<div class="banner-text">
+						<h3>Lançamentos Verão</h3>
+						<p>Aproveite as novas linhas preparadas para o verão!</p>
+						<a href="single.php">Conferir</a>
 					</div>
-				</a>
-			</div>
-		</div>
-		<!--fim destaques laterais-->
-
-		<div class="col-md-9 product1">
-			<div class="col-md-12">
-				<div class="bottom-product bottom-cd simpleCart_shelfItem">
-					<!-- Inicio do espaco de produtos -->
-					<?php
-						include_once("../persistence/conexao.php");
-						include_once("../persistence/produtoDAO.php");
-						$conexao = new Conexao("localhost","root","","pevstore");
-						$conexao->conectar();
-						$produtodao = new ProdutoDAO();
-						$produtodao->montarCatalogo($conexao->getLink());
-					?>
-					<!-- Fim do espaco de produtos -->
-				</div>
-			</div>
-		</div>
-		<div class="clearfix"> </div>
-		<nav class="in">
-			<ul class="pagination">
-				<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-				<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-				<li><a href="#">2 <span class="sr-only"></span></a></li>
-				<li><a href="#">3 <span class="sr-only"></span></a></li>
-				<li><a href="#">4 <span class="sr-only"></span></a></li>
-				<li><a href="#">5 <span class="sr-only"></span></a></li>
-				<li> <a href="#" aria-label="Next"><span aria-hidden="true">»</span> </a> </li>
+				</li>
 			</ul>
-		</nav>
+		</div>
 	</div>
 </div>
-<!--fim corpo-->
-			
+<!--fim banner-->
+
+<!--Destaques-->
+<div class="content">
+	<div class="container">
+		<div class="content-top">
+			<h1>Destaques</h1>
+			<div class="grid-in">
+				<div class="col-md-4 grid-top">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi.jpg" alt="">
+						<div class="b-wrapper">
+							<h3 class="b-animate b-from-left    b-delay03 ">
+									<span>Camisas</span>	
+							</h3>
+						</div>
+					</a>
+					<p><a href="single.php">Camisas populares</a></p>
+				</div>
+				<div class="col-md-4 grid-top">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi1.jpg" alt="">
+						<div class="b-wrapper">
+							<h3 class="b-animate b-from-left    b-delay03 ">
+								<span>Tênis</span>	
+							</h3>
+						</div>
+					</a>
+					<p><a href="single.php">Tênis corrida</a></p>
+				</div>
+				<div class="col-md-4 grid-top">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi2.jpg" alt="">
+						<div class="b-wrapper">
+							<h3 class="b-animate b-from-left    b-delay03 ">
+								<span>Mochila</span>	
+							</h3>
+						</div>
+					</a>
+					<p><a href="single.php">Mochilas escolares</a></p>
+				</div>
+					<div class="clearfix"> </div>
+			</div>
+			<div class="grid-in">
+				<div class="col-md-4 grid-top">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi3.jpg" alt="">
+						<div class="b-wrapper">
+							<h3 class="b-animate b-from-left    b-delay03 ">
+								<span>Agasalhos</span>	
+							</h3>
+						</div>
+					</a>
+					<p><a href="single.php">Jaquetas</a></p>
+				</div>
+				<div class="col-md-4 grid-top">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi4.jpg" alt="">
+						<div class="b-wrapper">
+							<h3 class="b-animate b-from-left    b-delay03 ">
+								<span>Bolsas</span>	
+							</h3>
+						</div>
+					</a>
+					<p><a href="single.php">Bolsas de utensílios</a></p>
+				</div>
+				<div class="col-md-4 grid-top">
+					<a href="single.php" class="b-link-stripe b-animate-go  thickbox"><img class="img-responsive" src="../images/pi5.jpg" alt="">
+						<div class="b-wrapper">
+							<h3 class="b-animate b-from-left    b-delay03 ">
+								<span>Tênis</span>	
+							</h3>
+						</div>
+					</a>
+					<p><a href="single.php">Tênis para academia</a></p>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+	<div class="content-bottom">
+		<ul>
+			<li><a href="#"><img class="img-responsive" src="../images/lo1.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="../images/lo2.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="../images/lo1.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="../images/lo2.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="../images/lo1.png" alt=""></a></li>
+			<li><a href="#"><img class="img-responsive" src="../images/lo2.png" alt=""></a></li>
+			<div class="clearfix"> </div>
+		</ul>
+	</div>
+</div>
+<!--fim Destaques-->
+
 <!--Rodapé (duplicado em todas páginas)-->
 <div class="footer">
 	<div class="container">
@@ -346,5 +344,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--fim do rodapé-->
+
 </body>
 </html>
+			
