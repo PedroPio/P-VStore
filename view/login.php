@@ -1,15 +1,3 @@
-<?php 
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-  unset($_SESSION['login']);
-  unset($_SESSION['senha']);
-  //header('location:login.php');
-  }
- 
-$logado = $_SESSION['login'];
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +30,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="header-left">		
 				<ul>
-					<li ><a class="lock"  href="login.php">Entrar/Registrar</a></li>
+					<?php 
+						session_start();
+						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
+						   unset($_SESSION['login']);
+						   unset($_SESSION['login']);
+						   session_destroy();
+						}
+						if(isset($_SESSION['login'])){
+						  echo '<li><a class="lock">Bem-Vindo, '.$_SESSION['login'].'</a><br>';
+						  echo '<a class="lock" href="?acao=sair">Sair</a></li>';
+						}
+						else{
+							echo '<li><a class="lock" href="login.php">Entrar/Registrar</a></li>';
+						}
+						//$logado = $_SESSION['login'];
+					?>
 				</ul>
 				<div class="cart box_1">
 					<a href="checkout.php">
@@ -197,23 +200,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 		<div class="account">
 			<div class="account-pass">
-				<div class="col-md-6 account-top">
-					<h1>Conta</h1>
-					<form action="session.php" method="POST">
-						<div> 	
-							<span>Email</span>
-							<input name="login" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
-						</div>
-						<div> 
-							<span >Senha</span>
-							<input name="senha" type="password">
-						</div>				
-							<input type="submit" value="Login"> 
-					</form>
-				</div>
-				<div class="col-md-2">
-					<div class="line-behind-text" data-context-show="sign-up-input"><span class="text"></span></div>
-				</div>
+				<?php 
+					if(!(isset($_SESSION['login']))){
+					   echo '<div class="col-md-6 account-top">';
+					   echo 	'<h1>Conta</h1>';
+					   echo 	'<form action="session.php" method="POST">';
+					   echo 		'<div>';
+					   echo 			'<span>Email</span>';
+					   echo 			'<input name="login" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">';
+					   echo 		'</div>';
+					   echo 		'<div>';
+					   echo 			'<span >Senha</span>';
+					   echo 			'<input name="senha" type="password">';
+					   echo 		'</div>';
+					   echo 		'<input type="submit" value="Login">';
+					   echo 	'</form>';
+					   echo '</div>';
+					   echo '<div class="col-md-2">';
+			   		   echo 	'<div class="line-behind-text" data-context-show="sign-up-input"><span class="text"></span></div>';
+			   		   echo '</div>';
+					}
+					//$logado = $_SESSION['login'];
+				?>
 				<div class="col-md-4 left-account ">
 					<h1>Criar conta</h1>
 					<a href="register.php" class="create">Prosseguir</a>
@@ -221,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-
+	</div>
 </div>
 
 <!--Rodapé (duplicado em todas páginas)-->

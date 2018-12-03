@@ -1,15 +1,3 @@
-<?php 
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-  unset($_SESSION['login']);
-  unset($_SESSION['senha']);
-  header('location:login.php');
-  }
- 
-$logado = $_SESSION['login'];
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +30,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="header-left">		
 				<ul>
-					<li ><a class="lock"  href="login.php">Entrar/Registrar</a></li>
+					<?php 
+						session_start();
+						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
+						   unset($_SESSION['login']);
+						   unset($_SESSION['login']);
+						   session_destroy();
+						   echo '<li><a class="lock" href="login.php">Entrar/Registrar</a></li>';
+						}
+						if(isset($_SESSION['login'])){
+						  echo '<li><a class="lock">Bem-Vindo, '.$_SESSION['login'].'</a><br>';
+						  echo '<a class="lock" href="?acao=sair">Sair</a></li>';
+						}
+						else{
+							echo '<li><a class="lock" href="login.php">Entrar/Registrar</a></li>';
+						}
+						//$logado = $_SESSION['login'];
+					?>
 				</ul>
 				<div class="cart box_1">
 					<a href="checkout.php">
@@ -50,7 +54,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> itens)</div>
 						<img src="../images/cart.png" alt=""/></h3>
 					</a>
-					<p><a href="javascript:;" class="simpleCart_empty">Esvaziar carrinho</a></p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -195,11 +198,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	
 <div class="container">
-	<div class="check">	 
-		<h1>Meu carrinho</h1>
+	<div class="check">
 		<div class="col-md-9 cart-items">
+			<h1>Meu carrinho</h1>
+			<p align="right"><a href="javascript:;" style="color: black" class="simpleCart_empty" onclick="">Esvaziar carrinho</a></p>
 			<script>
-				function a(id) {
+				function deletarCompra(id) {
 					var element = document.getElementById(id);
     				fade(element);
     				
@@ -278,7 +282,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					}
 					for ($i=0; $i < $rows ; $i++) {
 						$result = mysqli_fetch_array($query);
-						echo '<div id="'.$result['id'].'" class="cart-header" onclick="a('.$result['id'].')">';
+						echo '<div id="'.$result['id'].'" class="cart-header" onclick="deletarCompra('.$result['id'].')">';
 						echo 	'<div class="close1"></div>';
 						echo	'<div class="cart-sec simpleCart_shelfItem">';
 						echo		'<div class="cart-item cyc">';

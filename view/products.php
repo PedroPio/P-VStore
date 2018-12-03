@@ -1,15 +1,3 @@
-<?php 
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-  unset($_SESSION['login']);
-  unset($_SESSION['senha']);
-  //header('location:login.php');
-  }
- 
-$logado = $_SESSION['login'];
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +32,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="header-left">		
 				<ul>
-					<li ><a class="lock"  href="login.php">Entrar/Registrar</a></li>
+					<?php 
+						session_start();
+						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
+						   unset($_SESSION['login']);
+						   unset($_SESSION['login']);
+						   session_destroy();
+						   echo '<li><a class="lock" href="login.php">Entrar/Registrar</a></li>';
+						}
+						if(isset($_SESSION['login'])){
+						  echo '<li><a class="lock">Bem-Vindo, '.$_SESSION['login'].'</a><br>';
+						  echo '<a class="lock" href="?acao=sair">Sair</a></li>';
+						}
+						else{
+							echo '<li><a class="lock" href="login.php">Entrar/Registrar</a></li>';
+						}
+						//$logado = $_SESSION['login'];
+					?>
 				</ul>
 				<div class="cart box_1">
 					<a href="checkout.php">

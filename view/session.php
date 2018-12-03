@@ -7,7 +7,7 @@ session_start();
 $login = $_POST['login'];
 $senha = $_POST['senha'];
 
-$con = new Conexao("127.0.0.1", "root", "ph38671876", "pevstore");
+$con = new Conexao("127.0.0.1", "root", "", "pevstore");
 $con->conectar();
 
 //$a =  "SELECT * FROM Pessoa WHERE email = '$login' AND senha = '$senha'";

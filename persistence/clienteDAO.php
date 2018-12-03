@@ -4,9 +4,9 @@
 	class ClienteDAO {
 		function cadastrar($cliente, $link) {
 			/* conferir se o email ou cpf já foi cadastrado */
-			$queryCPF = mysqli_query($link, "SELECT * FROM Pessoa WHERE cpf= '".($cliente->getCpf())."'");
+			$queryCPF = mysqli_query($link, "SELECT * FROM pessoa WHERE cpf= '".($cliente->getCpf())."'");
 			$queryCPFRows = mysqli_num_rows($queryCPF);
-			$queryEmail = mysqli_query($link, "SELECT * FROM Pessoa 
+			$queryEmail = mysqli_query($link, "SELECT * FROM pessoa 
 									 WHERE email= '".($cliente->getEmail())."'");
 			$queryEmailRows = mysqli_num_rows($queryEmail);
 
@@ -17,7 +17,7 @@
 				die(header("Location: ../../view/register.php"));
 			}
 
-			$query = "INSERT INTO Pessoa (nome, dataNascimento, cpf, email, senha) values ('".($cliente->getNome())."','".($cliente->getNascimento())."',
+			$query = "INSERT INTO pessoa (nome, dataNascimento, cpf, email, senha) values ('".($cliente->getNome())."','".($cliente->getNascimento())."',
 				'".($cliente->getCpf())."','".($cliente->getEmail())."','".($cliente->getSenha())."')";
 
 			echo $query;

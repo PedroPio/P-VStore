@@ -7,7 +7,7 @@
 						  $_POST["email"], $_POST["senha"]);
 						  
 
-	$conexao = new Conexao("localhost","root","ph38671876","pevstore");
+	$conexao = new Conexao("localhost","root","","pevstore");
 	$conexao->conectar();
 	
 	$clientedao = new ClienteDAO();
