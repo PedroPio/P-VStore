@@ -4,10 +4,10 @@
 	include_once("../../persistence/clienteDAO.php");
 	
 	$cliente = new Cliente(null, $_POST["nome"], $_POST["nascimento"], $_POST["cpf"],
-						  $_POST["email"], $_POST["cep"], $_POST["endereco"], $_POST["cidade"],
-						  $_POST["telefone"], $_POST["senha"]);
-	
-	$conexao = new Conexao("localhost","root","","pevstore");
+						  $_POST["email"], $_POST["senha"]);
+						  
+
+	$conexao = new Conexao("localhost","root","ph38671876","pevstore");
 	$conexao->conectar();
 	
 	$clientedao = new ClienteDAO();

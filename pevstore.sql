@@ -24,8 +24,10 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Pessoa` (
   `email` VARCHAR(200) NOT NULL,
   `eAdmin` TINYINT(1) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`cpf`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC))
+  `id` INT NOT NULL AUTO_INCREMENT,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `cpf_UNIQUE` (`cpf` ASC))
 ENGINE = InnoDB;
 
 
@@ -54,15 +56,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `pevstore`.`Pedido` (
   `numPedido` VARCHAR(10) NOT NULL,
   `dataPedido` DATE NOT NULL,
-  `Pessoa_cpf` VARCHAR(14) NOT NULL,
   `Transportadora_CNPJ` VARCHAR(14) NOT NULL,
   `Carrinho_idCarrinho` INT NOT NULL,
-  PRIMARY KEY (`numPedido`, `Pessoa_cpf`, `Transportadora_CNPJ`, `Carrinho_idCarrinho`),
-  CONSTRAINT `fk_Pedido_Pessoa`
-    FOREIGN KEY (`Pessoa_cpf`)
-    REFERENCES `pevstore`.`Pessoa` (`cpf`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  `Pessoa_id` INT NOT NULL,
+  PRIMARY KEY (`numPedido`, `Transportadora_CNPJ`, `Carrinho_idCarrinho`, `Pessoa_id`),
   CONSTRAINT `fk_Pedido_Transportadora1`
     FOREIGN KEY (`Transportadora_CNPJ`)
     REFERENCES `pevstore`.`Transportadora` (`CNPJ`)
@@ -72,6 +69,11 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Pedido` (
     FOREIGN KEY (`Carrinho_idCarrinho`)
     REFERENCES `pevstore`.`Carrinho` (`idCarrinho`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Pedido_Pessoa1`
+    FOREIGN KEY (`Pessoa_id`)
+    REFERENCES `pevstore`.`Pessoa` (`id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -80,7 +82,7 @@ ENGINE = InnoDB;
 -- Table `pevstore`.`Pagamento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pevstore`.`Pagamento` (
-  `idPagamento` INT NULL AUTO_INCREMENT,
+  `idPagamento` INT NOT NULL AUTO_INCREMENT,
   `tipoPagamento` VARCHAR(45) NOT NULL,
   `numParcelas` INT NOT NULL,
   `Pedido_numPedido` VARCHAR(10) NOT NULL,
@@ -89,8 +91,8 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Pagamento` (
   `Pedido_Carrinho_idCarrinho` INT NOT NULL,
   PRIMARY KEY (`idPagamento`, `Pedido_numPedido`, `Pedido_Pessoa_cpf`, `Pedido_Transportadora_CNPJ`, `Pedido_Carrinho_idCarrinho`),
   CONSTRAINT `fk_Pagamento_Pedido1`
-    FOREIGN KEY (`Pedido_numPedido` , `Pedido_Pessoa_cpf` , `Pedido_Transportadora_CNPJ` , `Pedido_Carrinho_idCarrinho`)
-    REFERENCES `pevstore`.`Pedido` (`numPedido` , `Pessoa_cpf` , `Transportadora_CNPJ` , `Carrinho_idCarrinho`)
+    FOREIGN KEY (`Pedido_numPedido` , `Pedido_Transportadora_CNPJ` , `Pedido_Carrinho_idCarrinho`)
+    REFERENCES `pevstore`.`Pedido` (`numPedido` , `Transportadora_CNPJ` , `Carrinho_idCarrinho`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -103,11 +105,11 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Produto` (
   `codProduto` INT NOT NULL AUTO_INCREMENT,
   `precoCompra` DECIMAL(8,2) NULL,
   `precoVenda` DECIMAL(8,2) NULL,
-  `Pessoa_cpf` VARCHAR(14) NOT NULL,
-  PRIMARY KEY (`codProduto`, `Pessoa_cpf`),
+  `Pessoa_id` INT NOT NULL,
+  PRIMARY KEY (`codProduto`),
   CONSTRAINT `fk_Produto_Pessoa1`
-    FOREIGN KEY (`Pessoa_cpf`)
-    REFERENCES `pevstore`.`Pessoa` (`cpf`)
+    FOREIGN KEY (`Pessoa_id`)
+    REFERENCES `pevstore`.`Pessoa` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -132,8 +134,8 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Produto_has_Fornecedor` (
   `Fornecedor_cnpjFornecedor` VARCHAR(14) NOT NULL,
   PRIMARY KEY (`Produto_codProduto`, `Produto_Pessoa_cpf`, `Fornecedor_cnpjFornecedor`),
   CONSTRAINT `fk_Produto_has_Fornecedor_Produto1`
-    FOREIGN KEY (`Produto_codProduto` , `Produto_Pessoa_cpf`)
-    REFERENCES `pevstore`.`Produto` (`codProduto` , `Pessoa_cpf`)
+    FOREIGN KEY (`Produto_codProduto`)
+    REFERENCES `pevstore`.`Produto` (`codProduto`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Produto_has_Fornecedor_Fornecedor1`

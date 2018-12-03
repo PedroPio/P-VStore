@@ -2,7 +2,7 @@
 	include_once("../persistence/Connection.php");
 	include_once("../persistence/ClienteDAO.php");
 	
-	$conexao = new Connection("localhost","root","","teste");
+	$conexao = new Connection("localhost","root","ph38671876","teste");
 	$conexao->conectar();
 	
 	$clientedao = new ClienteDao();

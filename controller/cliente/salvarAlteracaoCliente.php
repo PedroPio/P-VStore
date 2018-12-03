@@ -5,7 +5,7 @@
 	
 	$cliente = new Cliente($_POST["codigo"], $_POST["nome"], $_POST["nascimento"], $_POST["salario"]);
 	
-	$conexao = new Connection("localhost","root","","teste");
+	$conexao = new Connection("localhost","root","ph38671876","teste");
 	$conexao->conectar();
 	
 	$clientedao = new ClienteDao();

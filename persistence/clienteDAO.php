@@ -4,27 +4,27 @@
 	class ClienteDAO {
 		function cadastrar($cliente, $link) {
 			/* conferir se o email ou cpf já foi cadastrado */
-			$queryCPF = mysqli_query($link, "SELECT * FROM clientes WHERE cpf= '".($cliente->getCpf())."'");
+			$queryCPF = mysqli_query($link, "SELECT * FROM Pessoa WHERE cpf= '".($cliente->getCpf())."'");
 			$queryCPFRows = mysqli_num_rows($queryCPF);
-			$queryEmail = mysqli_query($link, "SELECT * FROM clientes 
+			$queryEmail = mysqli_query($link, "SELECT * FROM Pessoa 
 									 WHERE email= '".($cliente->getEmail())."'");
 			$queryEmailRows = mysqli_num_rows($queryEmail);
 
 			if ($queryCPFRows > "0") {
-				die(header("Location: ../../view/register.html"));
+				die(header("Location: ../../view/register.php"));
 			}
 			if ($queryEmailRows > "0") {
-				die(header("Location: ../../view/register.html"));
+				die(header("Location: ../../view/register.php"));
 			}
 
-			$query = "INSERT INTO clientes (nome, nascimento, cpf, email, cep, endereco, cidade, telefone, senha) values ('".($cliente->getNome())."','".($cliente->getNascimento())."',
-				'".($cliente->getCpf())."','".($cliente->getEmail())."','".($cliente->getCep())."',
-				'".($cliente->getEndereco())."','".($cliente->getCidade())."','".($cliente->getTelefone())."','".($cliente->getSenha())."')";
+			$query = "INSERT INTO Pessoa (nome, dataNascimento, cpf, email, senha) values ('".($cliente->getNome())."','".($cliente->getNascimento())."',
+				'".($cliente->getCpf())."','".($cliente->getEmail())."','".($cliente->getSenha())."')";
 
+			echo $query;
 			if(!mysqli_query($link, $query)) {
 				die("Erro ao tentar se cadastrar!.");
 			} else {
-				header("Location: ../../view/pagInicial.html");
+				header("Location: ../../view/pagInicial.php");
 			}
 		}
 		
