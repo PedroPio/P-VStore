@@ -207,8 +207,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 	<div class="register">
         <div class="head-top">
-            <form action="../controller/cliente/consultarCliente.php" method="POST">
-                <h1>Visualizar Cliente</h1><br>
+            <form action="../controller/cliente/alterarCliente.php" method="POST">
+                <h1>Editar Cliente</h1><br>
                 <hr class="my-4" style="padding-bottom: 50px;">
                 <div class="row justify-content-center">
                     <div class="col-md-12 register-top-grid">

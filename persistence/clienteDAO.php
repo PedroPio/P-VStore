@@ -30,11 +30,16 @@
 		}
 		
 		function excluir($cod, $cpf, $link) {
-			$query = "DELETE FROM Pessoa WHERE cpf = ".($cod);
-			if(!mysqli_query($link, $query)) {
-				die("ERRO. CLIENTE NÃO EXCLUIDO.<br /><br /><a href=\"../view/excluirCliente.html\">VOLTAR</a>");
+			if ($cod == ""){
+				$query = "DELETE FROM Pessoa WHERE cpf = '".$cpf."'";
 			}
-			echo "CLIENTE EXCLUIDO.<br /><br /><a href=\"../view/excluirCliente.html\">VOLTAR</a>";
+			else{
+				$query = "DELETE FROM Pessoa WHERE id = '".$cod."'";
+			}
+			if(!mysqli_query($link, $query)) {
+				die("ERRO. CLIENTE NÃO EXCLUIDO.");
+			}
+			header("Location: ../../view/deleteCliente.php");
 		}
 		
 		function consultar($cod, $cpf, $link) {
@@ -54,11 +59,14 @@
 		
 		
 		function alterar($cliente, $link) {
-			$query = "update cliente set nome='".($cliente->getNome())."', nascimento='".($cliente->getNascimento())."', salario=".($cliente->getSalario())." WHERE ID=".$cliente->getCodigo();
+			$query = "UPDATE Pessoa SET nome='".($cliente->getNome())."', dataNascimento='".($cliente->getNascimento())."',
+			 cpf='".($cliente->getCpf())."', email='".($cliente->getEmail())."', senha='".($cliente->getSenha())."'
+			 WHERE cpf ='".($cliente->getCpf())."'";
+			echo $query;
 			if(!mysqli_query($link, $query)) {
-				die("ERRO! NAO SALVOU OS DADOS.<br /><br /><a href=\"../view/alterarCliente.html\">VOLTAR</a>");
+				die("ERRO! NAO SALVOU OS DADOS.");
 			}
-			echo "DADOS SALVOS.<br /><br /><a href=\"../view/alterarCliente.html\">VOLTAR</a>";
+			header("Location: ../../view/editCliente.php");
 		}
 	}
 ?>

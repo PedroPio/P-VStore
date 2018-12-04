@@ -82,29 +82,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					$consulta = $clientedao->consultar($_POST["codigo"], $_POST['cpf'], $conexao->getLink());
 					$view = mysqli_fetch_array($consulta);
 
-					echo '<link href="../../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />';
-					echo '<link href="../../css/style.css" rel="stylesheet" type="text/css" media="all" />';
-					echo '<link href="../../css/memenu.css" rel="stylesheet" type="text/css" media="all" />';
 					echo '<div class="col-md-6 register-top-grid">';
 					echo 	'<div>';
 					echo 		'<span>Nome Completo</span>';
-					echo 		'<input type="text" placeholder="'.$view['nome'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['nome'].'" disabled>';
 					echo 	'</div>';
 					echo 	'<div>';
 					echo 		'<span>Data de Nascimento</span>';
-					echo 		'<input type="text" placeholder="'.$view['dataNascimento'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['dataNascimento'].'" disabled>';
 					echo 	'</div>';
 					echo 	'<div>';
 					echo 		'<span>CPF</span>';
-					echo 		'<input type="text" placeholder="'.$view['cpf'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['cpf'].'" disabled>';
 					echo 	'</div>';
 					echo 	'<div>';
 					echo 		'<span>Email</span>';
-					echo 		'<input type="text" placeholder="'.$view['email'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['email'].'" disabled>';
 					echo 	'</div>';
 					echo 	'<div>';
 					echo 		'<span>Senha</span>';
-					echo 		'<input type="text" placeholder="'.$view['senha'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['senha'].'" disabled>';
 					echo 	'</div>';
 					echo '</div>';
 				?>

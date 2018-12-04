@@ -1,15 +1,13 @@
 <?php
-	require "../../model/db.php";
+	require "../../persistence/db.php";
 	
-	include_once("../model/Cliente.php");
-	include_once("../persistence/Connection.php");
-	include_once("../persistence/ClienteDAO.php");
+	include_once("../../model/cliente.php");
+	include_once("../../persistence/conexao.php");
+	include_once("../../persistence/clienteDAO.php");
 	
-	$cliente = new Cliente($_POST["codigo"], $_POST["nome"], $_POST["nascimento"], $_POST["salario"]);
+	$cliente = new Cliente(null, $_POST["nome"], $_POST["nascimento"], $_POST["cpf"],
+	$_POST["email"], $_POST["senha"]);
 	
-	$conexao = new Connection("localhost","root","ph38671876","teste");
-	$conexao->conectar();
-	
-	$clientedao = new ClienteDao();
+	$clientedao = new ClienteDAO();
 	$clientedao->alterar($cliente, $conexao->getLink());
 ?>
