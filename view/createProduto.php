@@ -1,3 +1,4 @@
+
 <?php
 	session_start();
 	if(isset($_SESSION['login'])){
@@ -9,7 +10,6 @@
 		header('location: pagInicial.php');
 	}
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>

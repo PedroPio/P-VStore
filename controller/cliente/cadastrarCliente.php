@@ -8,7 +8,7 @@
 	include_once("../../persistence/conexao.php");
 	include_once("../../persistence/clienteDAO.php");
 	
-	$cliente = new Cliente(null, $_POST["nome"], $_POST["nascimento"], $_POST["cpf"],
+	$cliente = new Cliente(null, $_POST["nome"], $_POST["dataNascimento"], $_POST["cpf"],
 						  $_POST["email"], $_POST["senha"]);
 	
 	$clientedao = new ClienteDAO();
