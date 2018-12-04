@@ -1,3 +1,11 @@
+<?php
+	if(isset($_SESSION['login'])){
+		if($_SESSION['user'] != 'admin'){
+			header('location: pagInicial.php')
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
