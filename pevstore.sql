@@ -36,8 +36,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pevstore`.`Transportadora` (
   `CNPJ` VARCHAR(14) NOT NULL,
-  `nome` VARCHAR(45) NULL,
-  PRIMARY KEY (`CNPJ`))
+  `nome` VARCHAR(45) NOT NULL,
+  `idTransportadora` INT NOT NULL AUTO_INCREMENT,
+  UNIQUE INDEX `CNPJ_UNIQUE` (`CNPJ` ASC),
+  PRIMARY KEY (`idTransportadora`))
 ENGINE = InnoDB;
 
 
@@ -63,18 +65,18 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Pedido` (
   CONSTRAINT `fk_Pedido_Transportadora1`
     FOREIGN KEY (`Transportadora_CNPJ`)
     REFERENCES `pevstore`.`Transportadora` (`CNPJ`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT,
   CONSTRAINT `fk_Pedido_Carrinho1`
     FOREIGN KEY (`Carrinho_idCarrinho`)
     REFERENCES `pevstore`.`Carrinho` (`idCarrinho`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT,
   CONSTRAINT `fk_Pedido_Pessoa1`
     FOREIGN KEY (`Pessoa_id`)
     REFERENCES `pevstore`.`Pessoa` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT)
 ENGINE = InnoDB;
 
 
@@ -93,8 +95,20 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Pagamento` (
   CONSTRAINT `fk_Pagamento_Pedido1`
     FOREIGN KEY (`Pedido_numPedido` , `Pedido_Transportadora_CNPJ` , `Pedido_Carrinho_idCarrinho`)
     REFERENCES `pevstore`.`Pedido` (`numPedido` , `Transportadora_CNPJ` , `Carrinho_idCarrinho`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `pevstore`.`Fornecedor`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `pevstore`.`Fornecedor` (
+  `cnpjFornecedor` VARCHAR(14) NOT NULL,
+  `nome` VARCHAR(80) NOT NULL,
+  `idFornecedor` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idFornecedor`),
+  UNIQUE INDEX `cnpjFornecedor_UNIQUE` (`cnpjFornecedor` ASC))
 ENGINE = InnoDB;
 
 
@@ -105,44 +119,34 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Produto` (
   `codProduto` INT NOT NULL AUTO_INCREMENT,
   `precoCompra` DECIMAL(8,2) NULL,
   `precoVenda` DECIMAL(8,2) NULL,
-  `Pessoa_id` INT NOT NULL,
-  PRIMARY KEY (`codProduto`),
-  CONSTRAINT `fk_Produto_Pessoa1`
-    FOREIGN KEY (`Pessoa_id`)
-    REFERENCES `pevstore`.`Pessoa` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `Fornecedor_idFornecedor` INT NOT NULL,
+  PRIMARY KEY (`codProduto`, `Fornecedor_idFornecedor`),
+  CONSTRAINT `fk_Produto_Fornecedor1`
+    FOREIGN KEY (`Fornecedor_idFornecedor`)
+    REFERENCES `pevstore`.`Fornecedor` (`idFornecedor`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `pevstore`.`Fornecedor`
+-- Table `pevstore`.`Carrinho_has_Produto`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pevstore`.`Fornecedor` (
-  `cnpjFornecedor` VARCHAR(14) NOT NULL,
-  `nome` VARCHAR(80) NOT NULL,
-  PRIMARY KEY (`cnpjFornecedor`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `pevstore`.`Produto_has_Fornecedor`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pevstore`.`Produto_has_Fornecedor` (
+CREATE TABLE IF NOT EXISTS `pevstore`.`Carrinho_has_Produto` (
+  `Carrinho_idCarrinho` INT NOT NULL,
   `Produto_codProduto` INT NOT NULL,
-  `Produto_Pessoa_cpf` VARCHAR(14) NOT NULL,
-  `Fornecedor_cnpjFornecedor` VARCHAR(14) NOT NULL,
-  PRIMARY KEY (`Produto_codProduto`, `Produto_Pessoa_cpf`, `Fornecedor_cnpjFornecedor`),
-  CONSTRAINT `fk_Produto_has_Fornecedor_Produto1`
-    FOREIGN KEY (`Produto_codProduto`)
-    REFERENCES `pevstore`.`Produto` (`codProduto`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Produto_has_Fornecedor_Fornecedor1`
-    FOREIGN KEY (`Fornecedor_cnpjFornecedor`)
-    REFERENCES `pevstore`.`Fornecedor` (`cnpjFornecedor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `Produto_Fornecedor_idFornecedor` INT NOT NULL,
+  PRIMARY KEY (`Carrinho_idCarrinho`, `Produto_codProduto`, `Produto_Fornecedor_idFornecedor`),
+  CONSTRAINT `fk_Carrinho_has_Produto_Carrinho1`
+    FOREIGN KEY (`Carrinho_idCarrinho`)
+    REFERENCES `pevstore`.`Carrinho` (`idCarrinho`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Carrinho_has_Produto_Produto1`
+    FOREIGN KEY (`Produto_codProduto` , `Produto_Fornecedor_idFornecedor`)
+    REFERENCES `pevstore`.`Produto` (`codProduto` , `Fornecedor_idFornecedor`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
