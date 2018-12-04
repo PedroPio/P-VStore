@@ -92,13 +92,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 					</div>
 					<div class="col-md-3">
-						<a class="lock" href="crudTransp.php" style="color: black;">
-							<img src="../images/transport.png"><br>
-							<!--Icon made by https://www.flaticon.com/authors/vignesh-oviyan from www.flaticon.com -->
-							CRUD Transportadora
-						</a>
-					</div>
-					<div class="col-md-3">
 						<a class="lock" href="crudFornec.php" style="color: black;">
 							<img src="../images/fornec.png"><br>
 							<!--Icon made by href="https://www.freepik.com/" from www.flaticon.com -->

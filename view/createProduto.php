@@ -87,10 +87,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<input type="text" name="nome" id="nome" required> 
 					</div>
 					<div>
-						<span>Fornecedor</span>
-						<input type="text" name="fornecedor" required> 
-					</div>
-					<div>
 						<span>Preço de compra</span>
 						<input type="text" name="precoCompra" required> 
 					</div>
