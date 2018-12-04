@@ -71,14 +71,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="row justify-content-center" style="padding-bottom: 50px;">
 				<div class="col-md-12">
 					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
+						<a class="lock" href="register.php" style="color: black;">
 							<img src="../images/create.png"><br>
 							<!--Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
 							Criar cliente
 						</a>
 					</div>
 					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
+						<a class="lock" href="viewCliente.php" style="color: black;">
 							<img src="../images/view.png"><br>
 							<!--Icon made by href="https://www.freepik.com/ from www.flaticon.com -->
 							Visualizar cliente

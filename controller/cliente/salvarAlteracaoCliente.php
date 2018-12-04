@@ -1,4 +1,6 @@
 <?php
+	require "../../model/db.php";
+	
 	include_once("../model/Cliente.php");
 	include_once("../persistence/Connection.php");
 	include_once("../persistence/ClienteDAO.php");

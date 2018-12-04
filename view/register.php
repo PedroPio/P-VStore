@@ -230,7 +230,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 					placeholder="ex: nome@email.com" required> 
 				</div>
-				</div>
+			</div>
 			<div class="col-md-12 register-bottom-grid">
 				<h3>Segurança</h3>
 			</div>

@@ -1,33 +1,41 @@
 <?php
-	include_once("../persistence/Connection.php");
-	include_once("../persistence/ClienteDAO.php");
+
+	require "../../persistence/db.php";
+	error_reporting(E_ALL);
+	ini_set('display_errors', 1);
 	
-	$conexao = new Connection("localhost","root","ph38671876","teste");
+	include_once("../../model/cliente.php");
+	include_once("../../persistence/conexao.php");
+	include_once("../../persistence/clienteDAO.php");
+
+	$conexao = new Conexao("localhost", "vinicius", "password", "pevstore");
 	$conexao->conectar();
+	$clientedao = new ClienteDAO();
+	echo $_POST["codigo"];
+	echo $_POST['cpf'];
+	$consulta = $clientedao->consultar($_POST["codigo"], $_POST['cpf'], $conexao->getLink());
+	$view = mysqli_fetch_row($consulta);
 	
-	$clientedao = new ClienteDao();
-	$resultado = $clientedao->consultar($_POST["codigo"], $conexao->getLink());
-	$linha = mysqli_fetch_row($resultado);
-	
-	echo "<head>";
-	echo "<style>";
-	echo "th, td, tr {border: 1px solid black;}";
-	echo "th {background-color: rgba(0,0,0,0.3);}";
-	echo "</style>";
-	echo "</head>";
-	echo "<table>";
-	echo "<tr>";
-	echo "<th>Codigo</th>";
-	echo "<th>Nome</th>";
-	echo "<th>Nascimento</th>";
-	echo "<th>Salario</th>";
-	echo "</tr>";
-	echo "<tr>";
-	echo "<td>".($linha[0])."</td>";
-	echo "<td>".($linha[1])."</td>";
-	echo "<td>".($linha[2])."</td>";
-	echo "<td>".($linha[3])."</td>";
-	echo "</tr>";
-	echo "</table>";
-	echo "<br /><a href=\"../view/consultarCliente.html\">VOLTAR</a>";
+	echo '<div class="col-md-6 register-top-grid">';
+	echo 	'<div>';
+	echo 		'<span>Nome Completo</span>';
+	echo 		'<input type="text" placeholder="'.$view['nome'].'" disabled>';
+	echo 	'</div>';
+	echo 	'<div>';
+	echo 		'<span>Data de Nascimento</span>';
+	echo 		'<input type="text" placeholder="'.$view['dataNascimento'].'" disabled>';
+	echo 	'</div>';
+	echo 	'<div>';
+	echo 		'<span>CPF</span>';
+	echo 		'<input type="text" placeholder="'.$view['cpf'].'" disabled>';
+	echo 	'</div>';
+	echo 	'<div>';
+	echo 		'<span>Email</span>';
+	echo 		'<input type="text" placeholder="'.$view['email'].'" disabled>';
+	echo 	'</div>';
+	echo 	'<div>';
+	echo 		'<span>Senha</span>';
+	echo 		'<input type="text" placeholder="'.$view['senha'].'" disabled>';
+	echo 	'</div>';
+	echo '</div>';
 ?>

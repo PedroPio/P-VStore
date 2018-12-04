@@ -231,7 +231,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 		   <?php
-				require "db.php";
+				require "../model/db.php";
 
 				if(isset($_GET['acao'])){ 
 			    //ADICIONAR checkout 

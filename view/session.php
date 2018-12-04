@@ -1,5 +1,5 @@
 <?php
-require "db.php";
+require "../persistence/db.php";
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -12,7 +12,7 @@ $senha = $_POST['senha'];
 //echo $a;
 // var_dump($con);
 
-$result = mysqli_query($con->getLink(), "SELECT * FROM Pessoa 
+$result = mysqli_query($conexao->getLink(), "SELECT * FROM Pessoa 
 WHERE email = '$login' AND senha = '$senha'");
 
 $array =  mysqli_fetch_array($result);

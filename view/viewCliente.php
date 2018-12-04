@@ -1,15 +1,3 @@
-<?php 
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-  unset($_SESSION['login']);
-  unset($_SESSION['senha']);
-  //header('location:login.php');
-  }
- 
-$logado = $_SESSION['login'];
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +21,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../js/simpleCart.min.js"> </script>
 </head>
 
-
 <body>
 <!--header (duplicado em todas as páginas)-->
 <div class="header">
@@ -44,7 +31,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="header-left">		
 				<ul>
-					<li ><a class="lock"  href="login.php">Entrar/Registrar</a></li>
+					<?php
+						session_start();
+						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
+						   	unset($_SESSION['login']);
+						   	unset($_SESSION['senha']);
+						   	unset($_SESSION['user']);
+						   	unset($_SESSION['nome']);
+						   	session_destroy();
+						}
+						if(isset($_SESSION['login'])){
+							if($_SESSION['user'] == 'admin'){
+						  		echo '<li><a class="lock" href="crud.php">CRUD</a>';
+						  	}
+						  	//Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com
+						  	echo '<li><img src="../images/user.png" style="padding-right: 10px;"><a class="lock">Bem-Vindo, '.$_SESSION['nome'].'</a><br>';
+						  	echo '<a class="lock" href="?acao=sair" >Sair</a></li>';
+						}
+						else{
+							echo '<li><a class="lock" href="login.php"><img src="../images/user.png" style="padding-right: 10px;">Entrar/Registrar</a></li>';
+						}
+						//$logado = $_SESSION['login'];
+					?>
 				</ul>
 				<div class="cart box_1">
 					<a href="checkout.php">
@@ -195,131 +203,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--fim do header-->
 
 	
-<!--Corpo-->
-<div class="product">
-	<div class="container">
-		<div class="col-md-3 product-price">		
-			<div class=" rsidebar span_1_of_left">
-				<!--Destaques laterais-->
-				<div class="of-left">
-					<h3 class="cate">Categorias</h3>
-				</div>
-				<ul class="menu">
-					<li class="item1"><a href="#">Homens </a>
-						<ul class="cute">
-							<li class="subitem1"><a href="single.php">subcategoria</a></li>
-							<li class="subitem2"><a href="single.php">subcategoria</a></li>
-							<li class="subitem3"><a href="single.php">subcategoria</a></li>
-						</ul>
-					</li>
-					<li class="item2"><a href="#">Mulheres </a>
-						<ul class="cute">
-							<li class="subitem1"><a href="single.php">subcategoria</a></li>
-							<li class="subitem2"><a href="single.php">subcategoria</a></li>
-							<li class="subitem3"><a href="single.php">subcategoria</a></li>
-						</ul>
-					</li>
-					<li class="item3"><a href="#">Crianças</a>
-						<ul class="cute">
-							<li class="subitem1"><a href="single.php">subcategoria</a></li>
-							<li class="subitem2"><a href="single.php">subcategoria</a></li>
-							<li class="subitem3"><a href="single.php">subcategoria</a></li>
-						</ul>
-					</li>
-				</ul>
+<!--Registro-->
+<div class="container">
+	<div class="register">
+		<form action="../controller/cliente/consultarCliente.php" method="POST">
+			<h1>Visualizar Cliente</h1><br>
+			<div class="col-md-12 register-top-grid">
+				<h3>Informações para consulta</h3><br>
 			</div>
-
-			<script type="text/javascript">
-				$(function() {
-					var menu_ul = $('.menu > li > ul'),
-						menu_a  = $('.menu > li > a');
-					menu_ul.hide();
-					menu_a.click(function(e) {
-						e.preventDefault();
-						if(!$(this).hasClass('active')) {
-							menu_a.removeClass('active');
-							menu_ul.filter(':visible').slideUp('normal');
-							$(this).addClass('active').next().stop(true,true).slideDown('normal');
-						} else {
-							$(this).removeClass('active');
-							$(this).next().stop(true,true).slideUp('normal');
-						}
-					});
-				
-				});
-			</script>
-
-			<div class="product-bottom">
-				<div class="of-left-in">
-					<h3 class="best">Destaques</h3>
+			<div class="col-md-6 register-top-grid">
+				<div style="padding-bottom: 20px;">
+					<span>Código do cliente</span>
+					<input type="number" name="codigo"> 
 				</div>
-				<div class="product-go">
-					<div class=" fashion-grid">
-						<a href="single.php"><img class="img-responsive " src="../images/p1.jpg" alt=""></a>
-								
-					</div>
-					<div class=" fashion-grid1">
-						<h6 class="best2"><a href="single.php" > Chapéu </a></h6>	
-							<span class=" price-in1"> R$40.00</span>
-					</div>		
-						<div class="clearfix"> </div>
+                <h3>Ou por</h3>
+				<div style="padding-top: 20px;">
+					<span>CPF</span>
+					<input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+					placeholder="ex: 111.111.111-11"> 
 				</div>
-				<div class="product-go">
-					<div class=" fashion-grid">
-						<a href="single.php"><img class="img-responsive " src="../images/p2.jpg" alt=""></a>								
-					</div>
-					<div class="fashion-grid1">
-						<h6 class="best2"><a href="single.php" > Vestido </a></h6>	
-						<span class=" price-in1"> $75.00</span>
-					</div>		
-					<div class="clearfix"> </div>
-				</div>
+            </div>
+			<div class="col-md-8 register-bottom-grid">
+				<input type="submit" value="Consultar">						
 			</div>
-			
-			<div class=" per1">
-				<a href="single.php" ><img class="img-responsive" src="../images/pro.jpg" alt="">
-					<div class="six1">
-						<h4>Desconto</h4>
-						<p>de até</p>
-						<span>60%</span>
-					</div>
-				</a>
-			</div>
-		</div>
-		<!--fim destaques laterais-->
-
-		<div class="col-md-9 product1">
-			<div class="col-md-12">
-				<div class="bottom-product bottom-cd simpleCart_shelfItem">
-					<!-- Inicio do espaco de produtos -->
-					<?php
-						include_once("../persistence/conexao.php");
-						include_once("../persistence/produtoDAO.php");
-						$conexao = new Conexao("localhost","root","","pevstore");
-						$conexao->conectar();
-						$produtodao = new ProdutoDAO();
-						$produtodao->montarCatalogo($conexao->getLink());
-					?>
-					<!-- Fim do espaco de produtos -->
-				</div>
-			</div>
-		</div>
-		<div class="clearfix"> </div>
-		<nav class="in">
-			<ul class="pagination">
-				<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-				<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-				<li><a href="#">2 <span class="sr-only"></span></a></li>
-				<li><a href="#">3 <span class="sr-only"></span></a></li>
-				<li><a href="#">4 <span class="sr-only"></span></a></li>
-				<li><a href="#">5 <span class="sr-only"></span></a></li>
-				<li> <a href="#" aria-label="Next"><span aria-hidden="true">»</span> </a> </li>
-			</ul>
-		</nav>
+			<div class="clearfix"> </div>
+		</form>
 	</div>
 </div>
-<!--fim corpo-->
-			
+
 <!--Rodapé (duplicado em todas páginas)-->
 <div class="footer">
 	<div class="container">
@@ -360,3 +271,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--fim do rodapé-->
 </body>
 </html>
+			

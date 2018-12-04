@@ -1,4 +1,6 @@
 <?php
+	require "../../model/db.php";
+	
 	include_once("../../model/produto.php");
 	include_once("../../persistence/conexao.php");
 	include_once("../../persistence/produtoDAO.php");
