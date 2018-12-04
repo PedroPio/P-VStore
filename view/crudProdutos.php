@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	if(isset($_SESSION['login'])){
 		if($_SESSION['user'] != 'admin'){
 			header('location: pagInicial.php');
@@ -44,7 +45,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-left">		
 				<ul>
 					<?php
-						session_start();
 						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
 						   	unset($_SESSION['login']);
 						   	unset($_SESSION['senha']);

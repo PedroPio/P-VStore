@@ -7,8 +7,8 @@
 		var $quantidade;
 		var $idFornecedor;
 		
-		function __construct($codigo, $nome, $marca, $descricao,
-							$preco, $quantidade, $idFornecedor) {
+		function __construct($codigo, $nome, $precoCompra,
+							$precoVenda, $quantidade, $idFornecedor) {
 			$this->codigo = $codigo;
 			$this->nome = $nome;
 			$this->precoCompra = $precoCompra;
@@ -29,6 +29,6 @@
 		function setPrecoCompra($precoCompra) {$this->precoCompra = $precoCompra;}
 		function setPrecoVenda($precoVenda) {$this->precoVenda = $precoVenda;}
 		function setQuantidade($quantidade) {$this->quantidade = $quantidade;}
-		function setQuantidade($idFornecedor) {$this->idFornecedor = $idFornecedor;}
+		function setidFornecedor($idFornecedor) {$this->idFornecedor = $idFornecedor;}
 	}
 ?>
