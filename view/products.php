@@ -302,10 +302,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="bottom-product bottom-cd simpleCart_shelfItem">
 					<!-- Inicio do espaco de produtos -->
 					<?php
+						require "../persistence/db.php";
 						include_once("../persistence/conexao.php");
 						include_once("../persistence/produtoDAO.php");
-						$conexao = new Conexao("localhost","root","","pevstore");
-						$conexao->conectar();
 						$produtodao = new ProdutoDAO();
 						$produtodao->montarCatalogo($conexao->getLink());
 					?>
