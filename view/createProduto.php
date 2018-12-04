@@ -1,3 +1,11 @@
+<?php
+	if(isset($_SESSION['login'])){
+		if($_SESSION['user'] != 'admin'){
+			header('location: pagInicial.php')
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,16 +83,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<input type="text" name="nome" id="nome" required> 
 					</div>
 					<div>
-						<span>Marca</span>
-					<input type="text" name="marca" required> 
-					</div>
-					<div>
 						<span>Fornecedor</span>
 						<input type="text" name="fornecedor" required> 
-					</div>
-					<div>
-						<span>Descricao</span>
-						<input type="text" name="descricao" required> 
 					</div>
 					<div>
 						<span>Preço de compra</span>
@@ -98,6 +98,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span>Quantidade</span>
 						<input type="number" name="quantidade" min="1" required> 
 					</div>
+					<div>
+						<span>ID do Fornecedor</span>
+						<input type="number" name="idFornecedor" min="1" required> 
+					</div>
 					<div class="col-md register-bottom-grid">
 						<input type="submit" value="Criar"><br><br>
 					</div>
@@ -107,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</form>
 	</div>
 	<hr class="my-4">
-    <a href="crudClientes.php" style="color: black;">
+    <a href="crudProdutos.php" style="color: black;">
         Voltar
     </a>
     <div style="padding-bottom: 30px;"></div>

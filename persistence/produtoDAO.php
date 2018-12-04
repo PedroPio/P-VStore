@@ -3,35 +3,26 @@
 
 	class ProdutoDAO {
 		function cadastrar($produto, $link) {
-			$query = "INSERT INTO produtos (nome, marca, fornecedor, descricao, preco, quantidade) values ('".($produto->getNome())."','".($produto->getMarca())."','".($produto->getFornecedor())."',
-				'".($produto->getDescricao())."','".($produto->getPreco())."','".($produto->getQuantidade())."')";
+			$query = "INSERT INTO Produto (nome, fornecedor, precoCompra, precoVenda, quantidade, idFornecedor) values ('".($produto->getNome())."','".($produto->getFornecedor())."',
+				'".($produto->getPrecoCompra())."','".($produto->getPrecoVenda())."','".($produto->getQuantidade())."', '".($produto->getidFornecedor())."')";
 
 			if(!mysqli_query($link, $query)) {
 				die("Erro ao tentar cadastrar produto!");
 			}else{
-				header("Location: ../../view/registerProducts.html");
+				header("Location: ../../view/createProduto.php");
 			}
 		}
 		
 		function excluir($cod, $link) {
-			$query = "DELETE FROM CLIENTE WHERE ID=".($cod);
+			$query = "DELETE FROM Produto WHERE codProduto = '".$cod."'";
 			if(!mysqli_query($link, $query)) {
-				die("ERRO. CLIENTE NÃO EXCLUIDO.<br /><br /><a href=\"../view/excluirCliente.html\">VOLTAR</a>");
+				die("ERRO. PRODUTO NÃO EXCLUIDO.");
 			}
-			echo "CLIENTE EXCLUIDO.<br /><br /><a href=\"../view/excluirCliente.html\">VOLTAR</a>";
-		}
-		
-		function consultar($cod, $link) {
-			$query = "SELECT * FROM CLIENTE WHERE ID=".($cod);
-			$result = mysqli_query($link, $query);
-			if(!$result) {
-				die("ERRO. CLIENTE NÃO ENCONTRADO.<br /><br /><a href=\"../view/excluirCliente.html\">VOLTAR</a>");
-			}
-			return $result;
+			header("Location: ../../view/deleteProduto.php");
 		}
 		
 		function montarCatalogo($link) {
-			$query = mysqli_query($link, "SELECT * FROM produtos");
+			$query = mysqli_query($link, "SELECT * FROM Produto");
 			$rows = mysqli_num_rows($query);
 			if(!$query) {
 				die("ERRO. NENHUM PRODUTO ENCONTRADO.");
@@ -55,12 +46,5 @@
 			}
 		}
 		
-		function alterar($cliente, $link) {
-			$query = "update cliente set nome='".($cliente->getNome())."', nascimento='".($cliente->getNascimento())."', salario=".($cliente->getSalario())." WHERE ID=".$cliente->getCodigo();
-			if(!mysqli_query($link, $query)) {
-				die("ERRO! NAO SALVOU OS DADOS.<br /><br /><a href=\"../view/alterarCliente.html\">VOLTAR</a>");
-			}
-			echo "DADOS SALVOS.<br /><br /><a href=\"../view/alterarCliente.html\">VOLTAR</a>";
-		}
 	}
 ?>

@@ -71,8 +71,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="row justify-content-center" style="padding-bottom: 50px;">
 				<div class="col-md-12">
 					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
-							<img src="../images/users.png"><br>
+						<a class="lock" href="createProduto.php" style="color: black;">
+							<img src="../images/create.png"><br>
 							<!--Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
 							Criar produto
 						</a>
@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 					</div>
 					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
+						<a class="lock" href="deleteProduto.php" style="color: black;">
 							<img src="../images/delete.png"><br>
 							<!--Icon made by href="https://www.flaticon.com/authors/itim2101 from www.flaticon.com -->
 							Excluir produto
