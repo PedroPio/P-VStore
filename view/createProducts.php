@@ -1,15 +1,3 @@
-<?php 
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-  unset($_SESSION['login']);
-  unset($_SESSION['senha']);
-  //header('location:login.php');
-  }
- 
-$logado = $_SESSION['login'];
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +27,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="logo">
 				<a href="pagInicial.php"><img src="../images/logo.png" alt=""></a>	
 			</div>
+			<div class="header-left">		
+				<ul>
+					<?php
+						session_start();
+						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
+						   	unset($_SESSION['login']);
+						   	unset($_SESSION['senha']);
+						   	unset($_SESSION['user']);
+						   	unset($_SESSION['nome']);
+						   	session_destroy();
+						}
+						if(isset($_SESSION['login'])){
+							if($_SESSION['user'] == 'admin'){
+						  		echo '<li><a class="lock" href="crud.php">CRUD</a>';
+						  	}
+						  	//Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com
+						  	echo '<li><img src="../images/user.png" style="padding-right: 10px;"><a class="lock">Bem-Vindo, '.$_SESSION['nome'].'</a><br>';
+						  	echo '<a class="lock" href="?acao=sair" >Sair</a></li>';
+						}
+						else{
+							echo '<li><a class="lock" href="login.php"><img src="../images/user.png" style="padding-right: 10px;">Entrar/Registrar</a></li>';
+						}
+						//$logado = $_SESSION['login'];
+					?>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
@@ -49,46 +63,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 	<div class="register">
 		<form action="../controller/produto/cadastrarProduto.php" method="POST">
-			<h1>Registro de Produto</h1><br>
-			<div class="col-md-12 register-top-grid">
-				<h3>Informações do Produto</h3><br>
-			</div>
-			<div class="col-md-6 register-top-grid">
-				<div>
-					<span>Nome</span>
-					<input type="text" name="nome" id="nome" required> 
+			<h1>Criar produto</h1><br>
+			<hr class="my-4" style="padding-bottom: 50px;">
+            <div class="row justify-content-center">
+				<div class="col-md-12 register-top-grid">
+					<h3>Informações do Produto</h3><br>
 				</div>
-				<div>
-					<span>Marca</span>
-				<input type="text" name="marca" required> 
+				<div class="col-md-6 register-top-grid">
+					<div>
+						<span>Nome</span>
+						<input type="text" name="nome" id="nome" required> 
+					</div>
+					<div>
+						<span>Marca</span>
+					<input type="text" name="marca" required> 
+					</div>
+					<div>
+						<span>Fornecedor</span>
+						<input type="text" name="fornecedor" required> 
+					</div>
+					<div>
+						<span>Descricao</span>
+						<input type="text" name="descricao" required> 
+					</div>
+					<div>
+						<span>Preço de compra</span>
+						<input type="text" name="precoCompra" required> 
+					</div>
+					<div>
+						<span>Preço de venda</span>
+						<input type="text" name="precoVenda" required> 
+					</div>
+					<div>
+						<span>Quantidade</span>
+						<input type="number" name="quantidade" min="1" required> 
+					</div>
+					<div class="col-md register-bottom-grid">
+						<input type="submit" value="Criar"><br><br>
+					</div>
+					<div class="clearfix"> </div>
 				</div>
-				<div>
-					<span>Fornecedor</span>
-					<input type="text" name="fornecedor" required> 
-				</div>
-				<div>
-					<span>Descricao</span>
-					<input type="text" name="descricao" required> 
-				</div>
-				<div>
-					<span>Preço de compra</span>
-					<input type="text" name="precoCompra" required> 
-				</div>
-				<div>
-					<span>Preço de venda</span>
-					<input type="text" name="precoVenda" required> 
-				</div>
-				<div>
-					<span>Quantidade</span>
-					<input type="number" name="quantidade" min="1" required> 
-				</div>
-				<div class="col-md register-bottom-grid">
-					<input type="submit" value="Registrar"><br><br>
-				</div>
-				<div class="clearfix"> </div>
 			</div>
 		</form>
 	</div>
+	<hr class="my-4">
+    <a href="crudClientes.php" style="color: black;">
+        Voltar
+    </a>
+    <div style="padding-bottom: 30px;"></div>
 </div>
 
 <!--Rodapé (duplicado em todas páginas)-->
