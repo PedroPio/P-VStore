@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Fornecedor` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `pevstore`.`Produto` (
+  `nome` VARCHAR(45) NOT NULL,
   `codProduto` INT NOT NULL AUTO_INCREMENT,
   `precoCompra` DECIMAL(8,2) NULL,
   `precoVenda` DECIMAL(8,2) NULL,

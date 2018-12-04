@@ -42,7 +42,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-left">		
 				<ul>
 					<?php
-						session_start();
 						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
 						   	unset($_SESSION['login']);
 						   	unset($_SESSION['senha']);
@@ -84,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-6 register-top-grid">
 					<div>
 						<span>Nome</span>
-						<input type="text" name="nome" id="nome" required> 
+						<input type="text" name="nome" required> 
 					</div>
 					<div>
 						<span>Preço de compra</span>
