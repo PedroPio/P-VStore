@@ -3,8 +3,7 @@
 
 	class ProdutoDAO {
 		function cadastrar($produto, $link) {
-			$query = "INSERT INTO Produto (nome, fornecedor, precoCompra, precoVenda, quantidade, idFornecedor) values ('".($produto->getNome())."','".($produto->getFornecedor())."',
-				'".($produto->getPrecoCompra())."','".($produto->getPrecoVenda())."','".($produto->getQuantidade())."', '".($produto->getidFornecedor())."')";
+			$query = "INSERT INTO Produto (nome, precoCompra, precoVenda, quantidade, idFornecedor) values ('".($produto->getNome())."','".($produto->getPrecoCompra())."','".($produto->getPrecoVenda())."','".($produto->getQuantidade())."', '".($produto->getidFornecedor())."')";
 
 			if(!mysqli_query($link, $query)) {
 				die("Erro ao tentar cadastrar produto!");
