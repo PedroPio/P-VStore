@@ -5,7 +5,7 @@
 	class ClienteDAO {
 		function cadastrar($cliente, $link) {
 			/* conferir se o email ou cpf já foi cadastrado */
-			$queryCPF = mysqli_query($link, "SELECT * FROM Pessoaa WHERE cpf= '".($cliente->getCpf())."'");
+			$queryCPF = mysqli_query($link, "SELECT * FROM Pessoa WHERE cpf= '".($cliente->getCpf())."'");
 			$queryCPFRows = mysqli_num_rows($queryCPF);
 			$queryEmail = mysqli_query($link, "SELECT * FROM Pessoa 
 									 WHERE email= '".($cliente->getEmail())."'");

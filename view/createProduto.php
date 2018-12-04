@@ -15,8 +15,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="../js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
- 
-
 <script src="../js/main.js"></script>
 <script src="../js/simpleCart.min.js"> </script>
 </head>
@@ -58,43 +56,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 </div>
+<!--fim do header-->
 
 	
 <!--Registro-->
 <div class="container">
 	<div class="register">
-        <div class="head-top">
-            <form action="../controller/cliente/consultarCliente.php" method="POST">
-                <h1>Visualizar Cliente</h1><br>
-                <hr class="my-4" style="padding-bottom: 50px;">
-                <div class="row justify-content-center">
-                    <div class="col-md-12 register-top-grid">
-                        <h3>Informações para consulta</h3><br>
-                    </div>
-                    <div class="col-md-6 register-top-grid">
-                        <div style="padding-bottom: 20px;">
-                            <span>Código do cliente</span>
-                            <input type="number" name="codigo"> 
-                        </div>
-                        <h3>Ou por</h3>
-                        <div style="padding-top: 20px;">
-                            <span>CPF</span>
-                            <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                            placeholder="ex: 111.111.111-11"> 
-                        </div>
-                    </div>
-                    <div class="col-md-8 register-bottom-grid">
-                        <input type="submit" value="Consultar">						
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </form>
-        </div>
-        <hr class="my-4">
-        <a href="crudClientes.php" style="color: black;">
-            Voltar
-        </a>
-    </div>
+		<form action="../controller/produto/cadastrarProduto.php" method="POST">
+			<h1>Criar produto</h1><br>
+			<hr class="my-4" style="padding-bottom: 50px;">
+            <div class="row justify-content-center">
+				<div class="col-md-12 register-top-grid">
+					<h3>Informações do Produto</h3><br>
+				</div>
+				<div class="col-md-6 register-top-grid">
+					<div>
+						<span>Nome</span>
+						<input type="text" name="nome" id="nome" required> 
+					</div>
+					<div>
+						<span>Fornecedor</span>
+						<input type="text" name="fornecedor" required> 
+					</div>
+					<div>
+						<span>Preço de compra</span>
+						<input type="text" name="precoCompra" required> 
+					</div>
+					<div>
+						<span>Preço de venda</span>
+						<input type="text" name="precoVenda" required> 
+					</div>
+					<div>
+						<span>Quantidade</span>
+						<input type="number" name="quantidade" min="1" required> 
+					</div>
+					<div class="col-md register-bottom-grid">
+						<input type="submit" value="Criar"><br><br>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<hr class="my-4">
+    <a href="crudProdutos.php" style="color: black;">
+        Voltar
+    </a>
+    <div style="padding-bottom: 30px;"></div>
 </div>
 
 <!--Rodapé (duplicado em todas páginas)-->

@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Produto` (
   `precoCompra` DECIMAL(8,2) NULL,
   `precoVenda` DECIMAL(8,2) NULL,
   `Fornecedor_idFornecedor` INT NOT NULL,
+  `qtd` INT NOT NULL,
   PRIMARY KEY (`codProduto`, `Fornecedor_idFornecedor`))
 ENGINE = InnoDB;
 

@@ -54,165 +54,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						//$logado = $_SESSION['login'];
 					?>
 				</ul>
-				<div class="cart box_1">
-					<a href="checkout.php">
-					<h3> <div class="total">
-						<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> itens)</div>
-						<img src="../images/cart.png" alt=""/></h3>
-					</a>
-				</div>
-				<div class="clearfix"> </div>
 			</div>
-				<div class="clearfix"> </div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="head-top">
-			<div class="search">
-				<form>
-					<input type="text" name="search" value="Buscar na loja..." autocomplete="off" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Buscar na loja...';}">
-				</form>
-			</div>
-			<div class=" h_menu4">
-				<ul class="memenu skyblue">
-					<!--Link início não aparece na tela inicial (pagInicial.php)-->
-					<li class="active grid"><a class="color8" href="pagInicial.php">Início</a></li>
-					<li><a class="color1" href="#">Homem</a>
-						<div class="mepanel">
-							<div class="row">
-								<div class="col1">
-									<div class="h_nav">
-										<ul>
-											<h4>Roupas</h4>
-											<li><a href="products.php">Bermudas</a></li>
-											<li><a href="products.php">Bermudas Jeans</a></li>
-											<li><a href="products.php">Bonés</a></li>
-											<li><a href="products.php">Blusas</a></li>
-											<li><a href="products.php">Calças</a></li>
-											<li><a href="products.php">Camisas</a></li>
-											<li><a href="products.php">Camisetas</a></li>
-											<li><a href="products.php">Cuecas</a></li>
-											<li><a href="products.php">Moletom</a></li>
-											<li><a href="products.php">Polo</a></li>
-											<li><a href="products.php">Sunga</a></li>
-										</ul>	
-									</div>							
-								</div>
-								<div class="col1">
-									<div class="h_nav">
-										<ul>
-											<h4>Calçados</h4>
-											<li><a href="products.php">Alpargatas</a></li>
-											<li><a href="products.php">Chinelos</a></li>
-											<li><a href="products.php">Shorts</a></li>
-											<li><a href="products.php">Chinelo Slide</a></li>
-											<li><a href="products.php">Chuteiras</a></li>
-											<li><a href="products.php">Sapatos</a></li>
-											<li><a href="products.php">Sapatênis</a></li>
-											<li><a href="products.php">Tênis</a></li>
-											<li><a href="products.php">Tênis Casual</a></li>
-											<li><a href="products.php">Tênis para Corrida</a></li>
-											<li><a href="products.php">Tênis de skate</a></li>
-										</ul>	
-									</div>							
-								</div>
-								<div class="col1">
-									<div class="h_nav">
-										<ul>
-											<h4>Acessórios</h4>
-											<li><a href="products.php">Boné Aba Reta</a></li>
-											<li><a href="products.php">Boné Aba Curva</a></li>
-											<li><a href="products.php">Carteiras</a></li>
-											<li><a href="products.php">Cintos</a></li>
-											<li><a href="products.php">Malas</a></li>
-											<li><a href="products.php">Mochilas</a></li>
-											<li><a href="products.php">Óculos de Sol</a></li>
-											<li><a href="products.php">Pulseiras e Colares</a></li>
-											<li><a href="products.php">Relógios</a></li>
-										</ul>	
-									</div>												
-								</div>
-							</div>
-						</div>
-					</li>
-					<li class="grid"><a class="color2" href="#">Mulher</a>
-						<div class="mepanel">
-							<div class="row">
-								<div class="col1">
-									<div class="h_nav">
-										<ul>
-											<h4>Roupas</h4>
-											<li><a href="products.php">Biquínis</a></li>
-											<li><a href="products.php">Blusas</a></li>
-											<li><a href="products.php">Calça Jeans</a></li>
-											<li><a href="products.php">Camisetas</a></li>
-											<li><a href="products.php">Macacão</a></li>
-											<li><a href="products.php">Maiôs</a></li>
-											<li><a href="products.php">Moletom</a></li>
-											<li><a href="products.php">Saias</a></li>
-											<li><a href="products.php">Shorts</a></li>
-											<li><a href="products.php">Vestidos</a></li>
-										</ul>	
-									</div>							
-								</div>
-								<div class="col1">
-									<div class="h_nav">
-										<ul>
-											<h4>Calçados</h4>
-											<li><a href="products.php">Alpargatas</a></li>
-											<li><a href="products.php">Chinelos</a></li>
-											<li><a href="products.php">Rasteirinhas</a></li>
-											<li><a href="products.php">Sandálias</a></li>
-											<li><a href="products.php">Sapatilhas</a></li>
-											<li><a href="products.php">Sapatos</a></li>
-											<li><a href="products.php">Tênis</a></li>
-											<li><a href="products.php">Tênis Casual</a></li>
-											<li><a href="products.php">Tênis para Corrida</a></li>
-											<li><a href="products.php">Tênis de skate</a></li>
-										</ul>	
-									</div>							
-								</div>
-								<div class="col1">
-									<div class="h_nav">
-										<ul>
-											<h4>Acessórios</h4>
-											<li><a href="products.php">Bijuterias</a></li>
-											<li><a href="products.php">Bolsas</a></li>
-											<li><a href="products.php">Bonés</a></li>
-											<li><a href="products.php">Carteiras</a></li>
-											<li><a href="products.php">Cintos</a></li>
-											<li><a href="products.php">Nécessaire</a></li>
-											<li><a href="products.php">Malas</a></li>
-											<li><a href="products.php">Mochilas</a></li>
-											<li><a href="products.php">Óculos de Sol</a></li>
-											<li><a href="products.php">Pulseiras e Colares</a></li>
-											<li><a href="products.php">Relógios</a></li>
-										</ul>	
-									</div>												
-								</div>
-							</div>
-						</div>
-					</li>
-					<li><a class="color6" href="contact.php">Contato</a></li>
-				</ul> 
-			</div>
-			<div class="clearfix"> </div>
 		</div>
 	</div>
 </div>
-<!--fim do header-->
-
 	
 <!--Registro-->
 <div class="container">
 	<div class="register">
         <div class="head-top">
-            <form action="../controller/cliente/confirmarExclusaoCliente.php" method="POST">
+            <form action="../controller/cliente/excluirCliente.php" method="POST">
                 <h1>Deletar Cliente</h1><br>
                 <hr class="my-4" style="padding-bottom: 50px;">
                 <div class="row justify-content-center">
                     <div class="col-md-12 register-top-grid">
-                        <h3>Informações para consulta</h3><br>
+                        <h3>Informações para deletar</h3><br>
                     </div>
                     <div class="col-md-6 register-top-grid">
                         <div style="padding-bottom: 20px;">
