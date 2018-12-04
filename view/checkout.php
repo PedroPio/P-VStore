@@ -30,20 +30,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="header-left">		
 				<ul>
-					<?php 
+					<?php
 						session_start();
 						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
-						   unset($_SESSION['login']);
-						   unset($_SESSION['login']);
-						   session_destroy();
-						   echo '<li><a class="lock" href="login.php">Entrar/Registrar</a></li>';
+						   	unset($_SESSION['login']);
+						   	unset($_SESSION['senha']);
+						   	unset($_SESSION['user']);
+						   	unset($_SESSION['nome']);
+						   	session_destroy();
 						}
 						if(isset($_SESSION['login'])){
-						  echo '<li><a class="lock">Bem-Vindo, '.$_SESSION['login'].'</a><br>';
-						  echo '<a class="lock" href="?acao=sair">Sair</a></li>';
+							if($_SESSION['user'] == 'admin'){
+						  		echo '<li><a class="lock" href="crud.php">CRUD</a>';
+						  	}
+						  	//Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com
+						  	echo '<li><img src="../images/user.png" style="padding-right: 10px;"><a class="lock">Bem-Vindo, '.$_SESSION['nome'].'</a><br>';
+						  	echo '<a class="lock" href="?acao=sair" >Sair</a></li>';
 						}
 						else{
-							echo '<li><a class="lock" href="login.php">Entrar/Registrar</a></li>';
+							echo '<li><a class="lock" href="login.php"><img src="../images/user.png" style="padding-right: 10px;">Entrar/Registrar</a></li>';
 						}
 						//$logado = $_SESSION['login'];
 					?>
@@ -206,7 +211,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				function deletarCompra(id) {
 					var element = document.getElementById(id);
     				fade(element);
-    				
 				}
 
 				function fade(element) {
@@ -227,9 +231,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 		   <?php
-				include_once("../persistence/conexao.php");
-				$conexao = new Conexao("localhost","root","","pevstore");
-				$conexao->conectar();
+				require "db.php";
 
 				if(isset($_GET['acao'])){ 
 			    //ADICIONAR checkout 

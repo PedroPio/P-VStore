@@ -1,15 +1,3 @@
-<?php 
-session_start();
-if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-{
-  unset($_SESSION['login']);
-  unset($_SESSION['senha']);
-  //header('location:login.php');
-  }
- 
-//$logado = $_SESSION['login'];
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,9 +15,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="../js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
+ 
+
 <script src="../js/main.js"></script>
 <script src="../js/simpleCart.min.js"> </script>
 </head>
+
 
 <body>
 <!--header (duplicado em todas as páginas)-->
@@ -49,6 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						   	unset($_SESSION['user']);
 						   	unset($_SESSION['nome']);
 						   	session_destroy();
+						   	header('location:pagInicial.php');
 						}
 						if(isset($_SESSION['login'])){
 							if($_SESSION['user'] == 'admin'){
@@ -65,58 +57,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					?>
 				</ul>
 			</div>
+				<div class="clearfix"> </div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="head-top">
+			<div class="row">
+				<div class="col-md-auto" style="text-align: center;">
+					<h1>CRUD Fornecedores</h1>
+				</div>
+			</div>
+			<hr class="my-4" style="padding-bottom: 50px;">
+			<div class="row justify-content-center" style="padding-bottom: 50px;">
+				<div class="col-md-12">
+					<div class="col-md-3">
+						<a class="lock" href="#" style="color: black;">
+							<img src="../images/users.png"><br>
+							<!--Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
+							Criar fornecedora
+						</a>
+					</div>
+					<div class="col-md-3">
+						<a class="lock" href="#" style="color: black;">
+							<img src="../images/view.png"><br>
+							<!--Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com -->
+							Visualizar fornecedora
+						</a>
+					</div>
+					<div class="col-md-3">
+						<a class="lock" href="#" style="color: black;">
+							<img src="../images/edit.png"><br>
+							<!--Icon made by href="https://www.freepik.com/ from www.flaticon.com -->
+							Editar fornecedora
+						</a>
+					</div>
+					<div class="col-md-3">
+						<a class="lock" href="#" style="color: black;">
+							<img src="../images/delete.png"><br>
+							<!--Icon made by href="https://www.flaticon.com/authors/itim2101 from www.flaticon.com -->
+							Excluir fornecedora
+						</a>
+					</div>
+				</div>
+			</div>
+			<hr class="my-4">
+			<a href="crud.php" style="color: black;">
+				Voltar
+			</a>
+			<div style="padding-top: 50px;"></div>
 		</div>
 	</div>
 </div>
 <!--fim do header-->
 
 	
-<!--Registro-->
-<div class="container">
-	<div class="register">
-		<form action="../controller/produto/cadastrarProduto.php" method="POST">
-			<h1>Registro de Produto</h1><br>
-			<div class="col-md-12 register-top-grid">
-				<h3>Informações do Produto</h3><br>
-			</div>
-			<div class="col-md-6 register-top-grid">
-				<div>
-					<span>Nome</span>
-					<input type="text" name="nome" id="nome" required> 
-				</div>
-				<div>
-					<span>Marca</span>
-				<input type="text" name="marca" required> 
-				</div>
-				<div>
-					<span>Fornecedor</span>
-					<input type="text" name="fornecedor" required> 
-				</div>
-				<div>
-					<span>Descricao</span>
-					<input type="text" name="descricao" required> 
-				</div>
-				<div>
-					<span>Preço de compra</span>
-					<input type="text" name="precoCompra" required> 
-				</div>
-				<div>
-					<span>Preço de venda</span>
-					<input type="text" name="precoVenda" required> 
-				</div>
-				<div>
-					<span>Quantidade</span>
-					<input type="number" name="quantidade" min="1" required> 
-				</div>
-				<div class="col-md register-bottom-grid">
-					<input type="submit" value="Registrar"><br><br>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</form>
-	</div>
-</div>
 
+			
 <!--Rodapé (duplicado em todas páginas)-->
 <div class="footer">
 	<div class="container">
@@ -157,4 +153,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--fim do rodapé-->
 </body>
 </html>
-			
