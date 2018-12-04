@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-3">
 
 						<a class="lock" href="createFornecedor.php" style="color: black;">
-							<img src="../images/users.png"><br>
+							<img src="../images/create.png"><br>
 						
 							<!--Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
 							Criar fornecedora
