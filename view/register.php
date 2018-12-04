@@ -218,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div>
 					<span>Data de Nascimento</span>
-				<input type="text" name="nascimento" placeholder="ex: 01/01/2001" required> 
+				<input type="text" name="dataNascimento" placeholder="ex: 01/01/2001" required> 
 				</div>
 				<div>
 					<span>CPF</span>

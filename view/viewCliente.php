@@ -206,29 +206,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--Registro-->
 <div class="container">
 	<div class="register">
-		<form action="../controller/cliente/consultarCliente.php" method="POST">
-			<h1>Visualizar Cliente</h1><br>
-			<div class="col-md-12 register-top-grid">
-				<h3>Informações para consulta</h3><br>
-			</div>
-			<div class="col-md-6 register-top-grid">
-				<div style="padding-bottom: 20px;">
-					<span>Código do cliente</span>
-					<input type="number" name="codigo"> 
-				</div>
-                <h3>Ou por</h3>
-				<div style="padding-top: 20px;">
-					<span>CPF</span>
-					<input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-					placeholder="ex: 111.111.111-11"> 
-				</div>
-            </div>
-			<div class="col-md-8 register-bottom-grid">
-				<input type="submit" value="Consultar">						
-			</div>
-			<div class="clearfix"> </div>
-		</form>
-	</div>
+        <div class="head-top">
+            <form action="../controller/cliente/consultarCliente.php" method="POST">
+                <h1>Visualizar Cliente</h1><br>
+                <hr class="my-4" style="padding-bottom: 50px;">
+                <div class="row justify-content-center" style="padding-bottom: 50px;">
+                    <div class="col-md-12 register-top-grid">
+                        <h3>Informações para consulta</h3><br>
+                    </div>
+                    <div class="col-md-6 register-top-grid">
+                        <div style="padding-bottom: 20px;">
+                            <span>Código do cliente</span>
+                            <input type="number" name="codigo"> 
+                        </div>
+                        <h3>Ou por</h3>
+                        <div style="padding-top: 20px;">
+                            <span>CPF</span>
+                            <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                            placeholder="ex: 111.111.111-11"> 
+                        </div>
+                    </div>
+                    <div class="col-md-8 register-bottom-grid">
+                        <input type="submit" value="Consultar">						
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </form>
+        </div>
+        <hr class="my-4">
+        <a href="crudClientes.php" style="color: black;">
+            Voltar
+        </a>
+        <div style="padding-top: 50px;"></div>
+    </div>
 </div>
 
 <!--Rodapé (duplicado em todas páginas)-->
