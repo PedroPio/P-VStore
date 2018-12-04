@@ -206,55 +206,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--Registro-->
 <div class="container">
 	<div class="register">
-		<form action="../controller/cliente/cadastrarCliente.php" method="POST">
-			<h1>Registro</h1><br>
-			<div class="col-md-12 register-top-grid">
-				<h3>Informações Pessoais</h3><br>
-			</div>
-			<div class="col-md-6 register-top-grid">
-				<div>
-					<span>Nome Completo</span>
-					<input type="text" name="nome" placeholder="ex: Fulano Sicrano Breltrano" required> 
-				</div>
-				<div>
-					<span>Data de Nascimento</span>
-				<input type="text" name="dataNascimento" placeholder="ex: 01/01/2001" required> 
-				</div>
-				<div>
-					<span>CPF</span>
-					<input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-					placeholder="ex: 111.111.111-11" required> 
-				</div>
-				<div>
-					<span>Email</span>
-					<input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-					placeholder="ex: nome@email.com" required> 
-				</div>
-			</div>
-			<div class="col-md-12 register-bottom-grid">
-				<h3>Segurança</h3>
-			</div>
-			<div class="col-md-6 register-bottom-grid">
-				<div>
-					<span>Senha</span>
-					<input type="password" name="senha" required>
-				</div>
-				<div>
-					<span>Confirmar Senha</span>
-					<input type="password" required>
-				</div>
-			</div>
-			<div class="col-md-8 register-top-grid">
-				<a class="news-letter" href="#"></a>
-				<label class="checkbox"><input type="checkbox" name="checkbox" checked="">
-					<i> </i>Receber novidades da P&V Store no seu email</label>
-			</div>
-			<div class="col-md-8 register-bottom-grid">
-				<input type="submit" value="Registrar">						
-			</div>
-			<div class="clearfix"> </div>
-		</form>
-	</div>
+        <div class="head-top">
+            <form action="../controller/cliente/alterarCliente.php" method="POST">
+                <h1>Editar Cliente</h1><br>
+                <hr class="my-4" style="padding-bottom: 50px;">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 register-top-grid">
+                        <h3>Informações para consulta</h3><br>
+                    </div>
+                    <div class="col-md-6 register-top-grid">
+                        <div style="padding-bottom: 20px;">
+                            <span>Código do cliente</span>
+                            <input type="number" name="codigo"> 
+                        </div>
+                        <h3>Ou por</h3>
+                        <div style="padding-top: 20px;">
+                            <span>CPF</span>
+                            <input type="text" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                            placeholder="ex: 111.111.111-11"> 
+                        </div>
+                    </div>
+                    <div class="col-md-8 register-bottom-grid">
+                        <input type="submit" value="Consultar">						
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </form>
+        </div>
+        <hr class="my-4">
+        <a href="crudClientes.php" style="color: black;">
+            Voltar
+        </a>
+    </div>
 </div>
 
 <!--Rodapé (duplicado em todas páginas)-->
