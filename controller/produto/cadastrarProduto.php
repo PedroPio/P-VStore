@@ -5,8 +5,8 @@
 	include_once("../../persistence/conexao.php");
 	include_once("../../persistence/produtoDAO.php");
 	
-	$produto = new Produto(null, $_POST["nome"], $_POST["fornecedor"],
-						   $_POST["precoCompra"], $_POST["precoVenda"], $_POST["quantidade"]);
+	$produto = new Produto(null, $_POST["nome"],$_POST["precoCompra"], 
+							$_POST["precoVenda"], $_POST["quantidade"], $_POST["idFornecedor"]);
 	
 	$produtodao = new ProdutoDAO();
 	$produtodao->cadastrar($produto, $conexao->getLink());
