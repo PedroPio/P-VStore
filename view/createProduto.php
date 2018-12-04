@@ -90,6 +90,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<span>Quantidade</span>
 						<input type="number" name="quantidade" min="1" required> 
 					</div>
+					<div>
+						<span>ID do Fornecedor</span>
+						<input type="number" name="idFornecedor" min="1" required> 
+					</div>
 					<div class="col-md register-bottom-grid">
 						<input type="submit" value="Criar"><br><br>
 					</div>
