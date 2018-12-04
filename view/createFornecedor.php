@@ -21,7 +21,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="../js/simpleCart.min.js"> </script>
 </head>
 
-
 <body>
 <!--header (duplicado em todas as páginas)-->
 <div class="header">
@@ -40,7 +39,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						   	unset($_SESSION['user']);
 						   	unset($_SESSION['nome']);
 						   	session_destroy();
-						   	header('location:pagInicial.php');
 						}
 						if(isset($_SESSION['login'])){
 							if($_SESSION['user'] == 'admin'){
@@ -56,65 +54,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						//$logado = $_SESSION['login'];
 					?>
 				</ul>
-			</div>
-				<div class="clearfix"> </div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="head-top">
-			<div class="row">
-				<div class="col-md-auto" style="text-align: center;">
-					<h1>CRUD Fornecedores</h1>
-				</div>
-			</div>
-			<hr class="my-4" style="padding-bottom: 50px;">
-			<div class="row justify-content-center" style="padding-bottom: 50px;">
-				<div class="col-md-12">
-					<div class="col-md-3">
-
-						<a class="lock" href="createFornecedor.php" style="color: black;">
-							<img src="../images/create.png"><br>
-						
-							<!--Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
-							Criar fornecedora
-						</a>
-					</div>
-					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
-							<img src="../images/view.png"><br>
-							<!--Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com -->
-							Visualizar fornecedora
-						</a>
-					</div>
-					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
-							<img src="../images/edit.png"><br>
-							<!--Icon made by href="https://www.freepik.com/ from www.flaticon.com -->
-							Editar fornecedora
-						</a>
-					</div>
-					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
-							<img src="../images/delete.png"><br>
-							<!--Icon made by href="https://www.flaticon.com/authors/itim2101 from www.flaticon.com -->
-							Excluir fornecedora
-						</a>
-					</div>
-				</div>
-			</div>
-			<hr class="my-4">
-			<a href="crud.php" style="color: black;">
-				Voltar
-			</a>
-			<div style="padding-top: 50px;"></div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </div>
-<!--fim do header-->
+				
+<!--Registro-->
+<div class="container">
+	<div class="register">
+		<form action="../controller/fornecedor/cadastrarFornecedor.php" method="POST">
+			<h1>Criar Fornecedor</h1><br>
+            <hr class="my-4" style="padding-bottom: 50px;">
+            <div class="row justify-content-center">
+                <div class="col-md-12 register-top-grid">
+                    <h3>Dados do Fornecedor</h3><br>
+                </div>
+                <div class="col-md-6 register-top-grid">
+                    <div>
+                        <span>CNPJ</span>
+                        <input type="text" name="cnpjFornecedor"  required> 
+                    </div>
+                    <div>
+                        <span>nome</span>
+                    <input type="text" name="nome" placeholder="Digite o nome de sua loja." required> 
+                    </div>
+                </div>
+                <div class="col-md-8 register-bottom-grid">
+                    <input type="submit" value="Registrar">						
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+		</form>
+	</div>
+    <hr class="my-4">
+    <a href="crudClientes.php" style="color: black;">
+        Voltar
+    </a>
+    <div style="padding-bottom: 50px;"></div>
+</div>
 
-	
-
-			
 <!--Rodapé (duplicado em todas páginas)-->
 <div class="footer">
 	<div class="container">
@@ -155,3 +133,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--fim do rodapé-->
 </body>
 </html>
+			
