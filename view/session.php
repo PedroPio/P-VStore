@@ -17,6 +17,7 @@ WHERE email = '$login' AND senha = '$senha'");
 
 $array =  mysqli_fetch_array($result);
 $nome = $array['nome'];
+$id = $array['id'];
 
 // $result = mysqli_fetch_array($result, MYSQLI_ASSOC);
 //echo "TESTE" . mysqli_num_rows ($result);
@@ -24,6 +25,7 @@ if(mysqli_num_rows ($result) > 0 ){
 	$_SESSION['login'] = $login;
 	$_SESSION['senha'] = $senha;
 	$_SESSION['nome'] = $nome;
+	$_SESSION['id'] = $id;
 	if ($array['eAdmin'] == 1) {
 		$_SESSION['user'] = 'admin';
 	}else{

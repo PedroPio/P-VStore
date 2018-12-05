@@ -39,7 +39,7 @@
 				echo 		'</a>';
 				echo 	'</div>';
 				echo 	'<div style="text-align: center; padding-top: 15px; padding-bottom: 15px"><b>'.$result['nome'].'</b></div>';
-				echo 	'<a class="item_add" href="checkout.php?acao=add&idProduto='.$result['idProduto'].'"><p class="number item_price"><i> </i>R$ '.$result['precoVenda'].'</p></a>';
+				echo 	'<a class="item_add" href="checkout.php?acao=add&codProduto='.$result['codProduto'].'"><p class="number item_price"><i> </i>R$ '.$result['precoVenda'].'</p></a>';
 				echo 	'<div style="padding-bottom: 70px"></div>';
 				echo '</div>';
 			}

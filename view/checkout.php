@@ -203,140 +203,116 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	
 <div class="container">
-	<div class="check">
-		<div class="col-md-9 cart-items">
-			<h1>Meu carrinho</h1>
-			<p align="right"><a href="javascript:;" style="color: black" class="simpleCart_empty" onclick="">Esvaziar carrinho</a></p>
-			<script>
-				function deletarCompra(id) {
-					var element = document.getElementById(id);
-    				fade(element);
-				}
+	<p align="right"><a href="javascript:;" style="color: black" class="simpleCart_empty" onclick="">Esvaziar carrinho</a></p>
+	<script>
+		function deletarCompra(id) {
+			var element = document.getElementById(id);
+			fade(element);
+		}
 
-				function fade(element) {
-				    var op = 1;
-				    var timer = setInterval(function () {
-				        if (op <= 0.1){
-				            clearInterval(timer);
-				            element.style.display = 'none';
-				        }
-				        element.style.opacity = op;
-				        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-				        op -= op * 0.1;
-				    }, 50);
-				}
+		function fade(element) {
+		    var op = 1;
+		    var timer = setInterval(function () {
+		        if (op <= 0.1){
+		            clearInterval(timer);
+		            element.style.display = 'none';
+		        }
+		        element.style.opacity = op;
+		        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+		        op -= op * 0.1;
+		    }, 50);
+		}
 
 
-		   </script>
+   </script>
 
 
-		   <?php
-				require "../model/db.php";
+   <?php
+		session_start();
+		require "../persistence/db.php";
 
-				if(isset($_GET['acao'])){ 
-			    //ADICIONAR checkout 
-			    	if($_GET['acao'] == 'add'){ 
-			        	$idProduto = intval($_GET['idProduto']); 
-			        	if(!isset($_SESSION['checkout'][$idProduto])){ 
-			        		/*$_SESSION['checkout'][$idProduto] = 1; */
-			        		$query = "INSERT INTO carrinho (id) VALUES ('".($idProduto)."')";
-			        		if (!mysqli_query($conexao->getLink(), $query)){
-			        			die("Não foi possível adicionar no carrinho!");
-			        		}
-			      		} 
-			      		/*else { 
-			        		$_SESSION['checkout'][$idProduto] += 1; 
-			      		} */
-			    	} //REMOVER checkout 
-			  
-			    	if($_GET['acao'] == 'del'){ 
-			      		$idProduto = intval($_GET['idProduto']); 
-			      		if(isset($_SESSION['checkout'][$idProduto])){ 
-			        		unset($_SESSION['checkout'][$idProduto]); 
-			      		} 
-			    	} //ALTERAR QUANTIDADE 
+		if(isset($_GET['acao'])){ 
+	    	if($_GET['acao'] == 'add'){ 
+				echo 'a';
+	        	$codProduto = intval($_GET['codProduto']);
+	        	$query = mysqli_query($conexao->getLink(), "SELECT * FROM Carrinho");
+	        	if (mysqli_num_rows($query) > "0"){
+					echo 'b';
+	        		$query = mysqli_query($conexao->getLink(), "DELETE FROM Carrinho");
+	        	}
+				$query = mysqli_query($conexao->getLink(), "INSERT INTO Carrinho (codProduto) VALUES ('".$codProduto."')");
+				$a = "INSERT INTO Carrinho (codProduto) VALUES ('".$codProduto."')";
+				echo $a;
+	   		} 
+	    }
+		$query = mysqli_query($conexao->getLink(), "SELECT * FROM Produto, Carrinho WHERE Produto.codProduto = Carrinho.codProduto");
+		$queryRows = mysqli_num_rows($query);
+		if(!$query) {
+			die("ERRO.");
+		}
 
-			    	if($_GET['acao'] == 'up'){ 
-			      		if(is_array($_POST['prod'])){ 
-			        		foreach($_POST['prod'] as $idProduto => $qtd){
-			            		$idProduto  = intval($idProduto);
-			            		$qtd = intval($qtd);
-			            		if(!empty($qtd) || $qtd != 0){
-			              			$_SESSION['checkout'][$idProduto] = $qtd;
-			            		}else{
-			              			unset($_SESSION['checkout'][$idProduto]);
-			            		}
-			        		}
-			      		}
-			    	}
-				}
-				$query = mysqli_query($conexao->getLink(), "SELECT * FROM carrinho");
-				$queryRows = mysqli_num_rows($query);
-				if(!$query) {
-					die("ERRO. NENHUM PRODUTO ENCONTRADO.");
-				}
-
-				if ($queryRows > "0"){
-					$query = mysqli_query($conexao->getLink(), "SELECT * FROM produtos, carrinho WHERE produtos.idProduto = carrinho.id");
-					$rows = mysqli_num_rows($query);
-					if(!$query) {
-						die("ERRO.");
-					}
-					for ($i=0; $i < $rows ; $i++) {
-						$result = mysqli_fetch_array($query);
-						echo '<div id="'.$result['id'].'" class="cart-header" onclick="deletarCompra('.$result['id'].')">';
-						echo 	'<div class="close1"></div>';
-						echo	'<div class="cart-sec simpleCart_shelfItem">';
-						echo		'<div class="cart-item cyc">';
-						echo			 '<img src="../images/pic2.jpg" class="img-responsive" alt=""/>';
-						echo		'</div>';
-						echo		'<div class="cart-item-info">';
-						echo			'<h3><a href="#">'.$result['nome'].'</a></h3>';
-						echo			'<ul class="qty">';
-						echo				'<li><p>Size : 5</p></li>';
-						echo				'<li><p>Qty : 1</p></li>';
-						echo			'</ul>';
-						echo			'<div class="delivery">';
-						echo				'<p>Entrega feita por: (nome da transportadora)</p>';
-						echo				'<div class="clearfix"></div>';
-						echo	        '</div>';
-						echo		'</div>';
-						echo		'<div class="clearfix"></div>';
-						echo	'</div>';
-					  	echo '</div>';
-					}
-				}
-			?>
-			 	
-		</div>
-		<div class="col-md-3 cart-total">
-			<div class="price-details">
-				<h3>Detalhes da compra</h3>
-				<span>Total</span>
-				<span class="total1">R$0,00</span>
-				<span>Discoto</span>
-				<span class="total1">---</span>
-				<span>Preço do frete</span>
-				<span class="total1">R$0,00</span>
-				<div class="clearfix"></div>				 
-			</div>	
-			<ul class="total_price">
-				<li class="last_price"> <h4>TOTAL</h4></li>	
-				<li class="last_price"><span>R$0,00</span></li>
-				<div class="clearfix"> </div>
-			</ul>
-			
-			 
-			<div class="clearfix"></div>
-			<a class="order" href="#">Fechar Compra</a>
-			<div class="total-item">
-				<h3>Oções</h3>
-				<h4>Cupons</h4>
-				<a class="cpns" href="#">Usar cupom</a>
-			</div>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
+		echo '<div class="check">';
+		echo 	'<div class="col-md-9 cart-items">';
+		echo 		'<h1>Meu carrinho</h1>';
+		$result = mysqli_fetch_array($query);
+		for ($i=0; $i < $queryRows; $i++) {
+			echo 		'<div id="'.$result['codProduto'].'" class="cart-header">';
+			echo 			'<div class="close1"></div>';
+			echo			'<div class="cart-sec simpleCart_shelfItem">';
+			echo				'<div class="cart-item cyc">';
+			echo			 		'<img src="../images/pic2.jpg" class="img-responsive" alt=""/>';
+			echo				'</div>';
+			echo				'<div class="cart-item-info">';
+			echo					'<h3><a href="#">'.$result['nome'].'</a></h3>';
+			echo					'<ul class="qty">';
+			echo						'<li><p>Size : 5</p></li>';
+			echo						'<li><p>Qty : 1</p></li>';
+			echo					'</ul>';
+			echo					'<div class="delivery">';
+			echo						'<p>Entrega feita por: (nome da transportadora)</p>';
+			echo						'<div class="clearfix"></div>';
+			echo	        		'</div>';
+			echo				'</div>';
+			echo				'<div class="clearfix"></div>';
+			echo			'</div>';
+		}
+	  	echo 		'</div>';
+		echo 	'</div>';
+		echo 	'<div class="col-md-3 cart-total">';
+		echo 		'<div class="price-details">';
+		echo 			'<h3>Detalhes da compra</h3>';
+		echo 			'<form action="../controller/compra/finalizarCompra.php" method="POST">';
+		echo 				'<span>Total</span>';
+		echo 				'<input type="text" name="total" value="R$'.$result['precoVenda'].'" disabled>';
+		echo 				'<span>Desconto</span>';
+		echo 				'<input type="text" name="desconto" value="--" disabled>';
+		echo 				'<span>Preço do frete</span>';
+		echo 				'<input type="text" name="frete" value="R$0.00" disabled>';
+		echo 				'<span>Transportadora</span>';
+		echo 				'<select>';
+		echo 				'<option hidden>Consulta transportadora</option>';
+		$queryTransp = mysqli_query($conexao->getLink(), "SELECT * FROM Transportadora");
+		while ($arrayTransp = mysqli_fetch_array($queryTransp)) {
+			echo '<option>'.$arrayTransp['idTransportadora'].' - '.$arrayTransp['nome'].'</option>';
+		}
+		echo 				'</select>';
+		echo 				'<input type="text" name="transportadora" placeholder="código da transportadora" required>';
+		echo 				'<div class="clearfix"></div>';
+		echo 				'<span>Item</span>';
+		echo 				'<input type="text" name="item" value="'.$result['codProduto'].'" readonly>';
+		echo 				'<ul class="total_price">';
+		echo 					'<li class="last_price"> <h4>TOTAL</h4></li>	';
+		echo 					'<li class="last_price"><span>R$'.$result['precoVenda'].'</span></li>';
+		echo 					'<div class="clearfix"> </div>';
+		echo 				'</ul>';
+		echo 				'<div class="clearfix"></div>';
+		echo 				'<input type="submit" value="Comprar">';
+		echo 			'</form>';
+		echo 		'</div>	';
+		echo 	'</div>';
+		echo 	'<div class="clearfix"> </div>';
+		echo '</div>';
+	?>
 </div>
 
 <!--Rodapé (duplicado em todas páginas)-->
