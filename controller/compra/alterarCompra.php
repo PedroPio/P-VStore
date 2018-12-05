@@ -1,22 +1,10 @@
-
-<?php
-	session_start();
-	if(isset($_SESSION['login'])){
-		if($_SESSION['user'] != 'admin'){
-			header('location: pagInicial.php');
-		}
-	}
-	else{
-		header('location: pagInicial.php');
-	}
-?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>P&V Store</title>
-<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<script src="../js/jquery.min.js"></script>
-<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="../../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<script src="../../js/jquery.min.js"></script>
+<link href="../../css/style.css" rel="stylesheet" type="text/css" media="all" />	
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="New Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
@@ -24,8 +12,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-<link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="../js/memenu.js"></script>
+<link href="../../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="../../js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
  
 
@@ -40,7 +28,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header-top">
 		<div class="container">
 			<div class="logo">
-				<a href="pagInicial.php"><img src="../images/logo.png" alt=""></a>	
+				<a href="pagInicial.php"><img src="../../images/logo.png" alt=""></a>	
 			</div>
 			<div class="header-left">		
 				<ul>
@@ -59,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  		echo '<li><a class="lock" href="crud.php">CRUD</a>';
 						  	}
 						  	//Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com
-						  	echo '<li><img src="../images/user.png" style="padding-right: 10px;"><a class="lock">Bem-Vindo, '.$_SESSION['nome'].'</a><br>';
+						  	echo '<li><img src="../../images/user.png" style="padding-right: 10px;"><a class="lock">Bem-Vindo, '.$_SESSION['nome'].'</a><br>';
 						  	echo '<a class="lock" href="?acao=sair" >Sair</a></li>';
 						}
 						else{
@@ -76,44 +64,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="head-top">
 			<div class="row">
 				<div class="col-md-auto" style="text-align: center;">
-					<h1>CRUD Transportadores</h1>
+					<h1>CRUD Clientes</h1>
 				</div>
 			</div>
 			<hr class="my-4" style="padding-bottom: 50px;">
 			<div class="row justify-content-center" style="padding-bottom: 50px;">
 				<div class="col-md-12">
-					<div class="col-md-3">
-						<a class="lock" href="createTransportadora.php" style="color: black;">
-							<img src="../images/create.png"><br>
-							<!--Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
-							Criar transportadora
-						</a>
-					</div>
-					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
-							<img src="../images/view.png"><br>
-							<!--Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com -->
-							Visualizar transportadora
-						</a>
-					</div>
-					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
-							<img src="../images/edit.png"><br>
-							<!--Icon made by href="https://www.freepik.com/ from www.flaticon.com -->
-							Editar transportadora
-						</a>
-					</div>
-					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
-							<img src="../images/delete.png"><br>
-							<!--Icon made by href="https://www.flaticon.com/authors/itim2101 from www.flaticon.com -->
-							Excluir transportadorasss
-						</a>
-					</div>
+				<?php
+					require "../../persistence/db.php";
+
+					include_once("../../persistence/conexao.php");
+					include_once("../../persistence/clienteDAO.php");
+
+					$compradao = new CompraDAO();
+
+					$consulta = $compradao->consultar($_POST['idCompra'], $conexao->getLink());
+					$view = mysqli_fetch_array($consulta);
+
+					echo '<form action="salvarAlteracaoCompra.php" method="POST">';
+					echo    '<div class="col-md-6 register-top-grid">';
+					echo 	    '<div>';
+					echo 		    '<span>ID da compra</span>';
+					echo 		    '<input type="text" name="idCompra" value="'.$view['idCompra'].'">';
+					echo 	    '</div>';
+					echo 	    '<div>';
+					echo 		    '<span>Data do Pedido</span>';
+					echo 		    '<input type="text" name="dataPedido" value="'.$view['dataPedido'].'">';
+					echo 	    '</div>';
+					echo 	    '<div>';
+                    echo 		    '<span>Pessoa que comprou:</span>';
+					echo 		    '<input type="text" name="nome" value="'.$view['Pessoa_id'].'">';
+                    echo 	    '</div>';
+                    echo 	    '<div>';
+                    echo 		    '<span>ID da transportadora:</span>';
+					echo 		    '<input type="text" name="idTransportadora" value="'.$view['idTransportadora'].'">';
+					echo 	    '</div>';
+					echo    '</div>';
+					echo '</form>';
+				?>
 				</div>
 			</div>
 			<hr class="my-4">
-			<a href="crud.php" style="color: black;">
+			<a href="../../view/viewCliente.php" style="color: black;">
 				Voltar
 			</a>
 			<div style="padding-top: 50px;"></div>

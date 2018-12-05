@@ -76,38 +76,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="head-top">
 			<div class="row">
 				<div class="col-md-auto" style="text-align: center;">
-					<h1>CRUD Transportadores</h1>
+					<h1>CRUD Compra</h1>
 				</div>
 			</div>
 			<hr class="my-4" style="padding-bottom: 50px;">
 			<div class="row justify-content-center" style="padding-bottom: 50px;">
 				<div class="col-md-12">
 					<div class="col-md-3">
-						<a class="lock" href="createTransportadora.php" style="color: black;">
+						<a class="lock" href="products.php" style="color: black;">
 							<img src="../images/create.png"><br>
 							<!--Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
-							Criar transportadora
+							Criar compra
 						</a>
 					</div>
 					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
+						<a class="lock" href="viewCompra.php" style="color: black;">
 							<img src="../images/view.png"><br>
 							<!--Icon made by https://www.flaticon.com/authors/chanut from www.flaticon.com -->
-							Visualizar transportadora
+							Visualizar compra
 						</a>
 					</div>
 					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
+						<a class="lock" href="editCompra.php" style="color: black;">
 							<img src="../images/edit.png"><br>
 							<!--Icon made by href="https://www.freepik.com/ from www.flaticon.com -->
-							Editar transportadora
+							Editar compra
 						</a>
 					</div>
 					<div class="col-md-3">
-						<a class="lock" href="#" style="color: black;">
+						<a class="lock" href="deleteCompra.php" style="color: black;">
 							<img src="../images/delete.png"><br>
 							<!--Icon made by href="https://www.flaticon.com/authors/itim2101 from www.flaticon.com -->
-							Excluir transportadorasss
+							Excluir compra
 						</a>
 					</div>
 				</div>

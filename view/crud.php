@@ -77,25 +77,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<hr class="my-4" style="padding-bottom: 50px;">
 			<div class="row justify-content-center" style="padding-bottom: 50px;">
 				<div class="col-md-12">
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<a class="lock" href="crudClientes.php" style="color: black;">
 							<img src="../images/users.png"><br>
 							<!--Icon made by https://www.flaticon.com/authors/smashicons from www.flaticon.com -->
 							CRUD Clientes
 						</a>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<a class="lock" href="crudProdutos.php" style="color: black;">
 							<img src="../images/hanger.png"><br>
 							<!--Icon made by https://www.flaticon.com/authors/nikita-golubev from www.flaticon.com -->
 							CRUD Produtos
 						</a>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-2">
+						<a class="lock" href="crudTransp.php" style="color: black;">
+							<img src="../images/transport.png"><br>
+							<!--Icon made by https://www.flaticon.com/authors/vignesh-oviyan from www.flaticon.com -->
+							CRUD Transportadora
+						</a>
+					</div>
+					<div class="col-md-2">
 						<a class="lock" href="crudFornec.php" style="color: black;">
 							<img src="../images/fornec.png"><br>
 							<!--Icon made by href="https://www.freepik.com/" from www.flaticon.com -->
 							CRUD Fornecedores
+						</a>
+					</div>
+					<div class="col-md-2">
+						<a class="lock" href="crudCompra.php" style="color: black;">
+							<img src="../images/fornec.png"><br>
+							<!--Icon made by href="https://www.freepik.com/" from www.flaticon.com -->
+							CRUD Compra
 						</a>
 					</div>
 				</div>
