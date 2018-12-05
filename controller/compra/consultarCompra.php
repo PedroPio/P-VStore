@@ -1,3 +1,15 @@
+<?php
+	session_start();
+	if(isset($_SESSION['login'])){
+		if($_SESSION['user'] != 'admin'){
+			header('location: pagInicial.php');
+		}
+	}
+	else{
+		header('location: pagInicial.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +45,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-left">		
 				<ul>
 					<?php
-						session_start();
 						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
 						   	unset($_SESSION['login']);
 						   	unset($_SESSION['senha']);
@@ -64,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="head-top">
 			<div class="row">
 				<div class="col-md-auto" style="text-align: center;">
-					<h1>CRUD Clientes</h1>
+					<h1>Visualizar compra</h1>
 				</div>
 			</div>
 			<hr class="my-4" style="padding-bottom: 50px;">
@@ -74,14 +85,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					require "../../persistence/db.php";
 
 					include_once("../../persistence/conexao.php");
-					include_once("../../persistence/compraDAO.php");
 					
 					$consulta = mysqli_query($conexao->getLink(), "SELECT * FROM Compra 
 					WHERE idCompra = '".$_POST['idCompra']."'");
 					$view = mysqli_fetch_array($consulta);
+					
 					$query = mysqli_query($conexao->getLink(), "SELECT nome FROM Compra, Pessoa
 					 WHERE Compra.Pessoa_id = Pessoa.id AND Compra.idCompra = '".$view['idCompra']."'");
 					$array = mysqli_fetch_array($query);
+
+					$produto = mysqli_query($conexao->getLink(), "SELECT nome, Produto.codProduto FROM Produto, Compra WHERE
+								Produto.codProduto = Compra.codProduto");
+					$arrayProduto = mysqli_fetch_array($produto);
 
 					echo '<div class="col-md-6 register-top-grid">';
 					echo 	'<div>';
@@ -100,6 +115,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     echo 		'<span>ID da transportadora:</span>';
 					echo 	    '<input type="text" value="'.$view['idTransportadora'].'" disabled>';
 					echo 	'</div>';
+					echo    '<div>';
+                    echo	    '<span>Codigo do produto:</span>';
+                    echo	    '<input type="text" name="codProduto" value="'.$arrayProduto['codProduto'].'">';
+                    echo	    '<span>Nome do produto:</span>';
+					echo	    '<input type="text" name="nomeProduto" value="'.$arrayProduto['nome'].'"readonly>';
+					echo    '</div>';
 					echo '</div>';
 				?>
 				</div>

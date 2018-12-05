@@ -11,9 +11,6 @@
 			if ($queryCNPJRows > "0") {
 				die(header("Location: ../../view/createTransportadora.php"));
 			}
-			if ($queryEmailRows > "0") {
-				die(header("Location: ../../view/createTransportadora.php"));
-			}
 
 			$query = "INSERT INTO Transportadora (cnpjTransportadora, nome) values ('".($transportadora->getCnpjTransportadora())."','".($transportadora->getNome())."')";
 
@@ -21,7 +18,7 @@
 			if(!mysqli_query($link, $query)) {
 				die("Erro ao tentar se cadastrar!.");
 			} else {
-				header("Location: ../../view/crudTransportadora.php");
+				header("Location: ../../view/crudTransp.php");
 			}
         }
     }

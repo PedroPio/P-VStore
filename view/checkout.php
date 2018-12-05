@@ -31,7 +31,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-left">		
 				<ul>
 					<?php
-						session_start();
 						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
 						   	unset($_SESSION['login']);
 						   	unset($_SESSION['senha']);
@@ -228,21 +227,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
    <?php
-		session_start();
 		require "../persistence/db.php";
 
 		if(isset($_GET['acao'])){ 
 	    	if($_GET['acao'] == 'add'){ 
-				echo 'a';
 	        	$codProduto = intval($_GET['codProduto']);
 	        	$query = mysqli_query($conexao->getLink(), "SELECT * FROM Carrinho");
 	        	if (mysqli_num_rows($query) > "0"){
-					echo 'b';
 	        		$query = mysqli_query($conexao->getLink(), "DELETE FROM Carrinho");
 	        	}
 				$query = mysqli_query($conexao->getLink(), "INSERT INTO Carrinho (codProduto) VALUES ('".$codProduto."')");
-				$a = "INSERT INTO Carrinho (codProduto) VALUES ('".$codProduto."')";
-				echo $a;
 	   		} 
 	    }
 		$query = mysqli_query($conexao->getLink(), "SELECT * FROM Produto, Carrinho WHERE Produto.codProduto = Carrinho.codProduto");

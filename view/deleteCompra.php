@@ -1,4 +1,3 @@
-
 <?php
 	session_start();
 	if(isset($_SESSION['login'])){
@@ -44,7 +43,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-left">		
 				<ul>
 					<?php
-						session_start();
 						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
 						   	unset($_SESSION['login']);
 						   	unset($_SESSION['senha']);
@@ -75,16 +73,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
 	<div class="register">
         <div class="head-top">
-            <form action="../controller/cliente/excluirCompra.php" method="POST">
-                <h1>Deletar Cliente</h1><br>
+            <form action="../controller/compra/excluirCompra.php" method="POST">
+                <h1>Deletar compra</h1><br>
                 <hr class="my-4" style="padding-bottom: 50px;">
                 <div class="row justify-content-center">
                     <div class="col-md-12 register-top-grid">
-                        <h3>Informações para deletar</h3><br>
+                        <h3>Informação para deletar</h3><br>
                     </div>
                     <div class="col-md-6 register-top-grid">
                         <div style="padding-bottom: 20px;">
-                            <span>Código do cliente</span>
+                            <span>Código da compra</span>
                             <input type="number" name="idCompra"> 
                         </div>
                     </div>
@@ -96,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </form>
         </div>
         <hr class="my-4">
-        <a href="crudClientes.php" style="color: black;">
+        <a href="crudCompra.php" style="color: black;">
             Voltar
         </a>
     </div>

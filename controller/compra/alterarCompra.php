@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="head-top">
 			<div class="row">
 				<div class="col-md-auto" style="text-align: center;">
-					<h1>CRUD Clientes</h1>
+					<h1>Editar compra</h1>
 				</div>
 			</div>
 			<hr class="my-4" style="padding-bottom: 50px;">
@@ -73,13 +73,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<?php
 					require "../../persistence/db.php";
 
-					include_once("../../persistence/conexao.php");
-					include_once("../../persistence/clienteDAO.php");
-
-					$compradao = new CompraDAO();
-
-					$consulta = $compradao->consultar($_POST['idCompra'], $conexao->getLink());
+					$consulta = mysqli_query($conexao->getLink(), "SELECT * FROM Compra WHERE
+								idCompra = '".$_POST['idCompra']."'");
 					$view = mysqli_fetch_array($consulta);
+					$nome = mysqli_query($conexao->getLink(), "SELECT nome FROM Pessoa, Compra WHERE
+								Pessoa.id = Compra.Pessoa_id");
+					$arrayNome = mysqli_fetch_array($nome);
+
+					$produto = mysqli_query($conexao->getLink(), "SELECT nome, Produto.codProduto FROM Produto, Compra WHERE
+								Produto.codProduto = Compra.codProduto");
+					$arrayProduto = mysqli_fetch_array($produto);
 
 					echo '<form action="salvarAlteracaoCompra.php" method="POST">';
 					echo    '<div class="col-md-6 register-top-grid">';
@@ -93,19 +96,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					echo 	    '</div>';
 					echo 	    '<div>';
                     echo 		    '<span>Pessoa que comprou:</span>';
-					echo 		    '<input type="text" name="nome" value="'.$view['Pessoa_id'].'">';
+					echo 		    '<input type="text" name="nome" value="'.$arrayNome['nome'].'">';
                     echo 	    '</div>';
                     echo 	    '<div>';
                     echo 		    '<span>ID da transportadora:</span>';
 					echo 		    '<input type="text" name="idTransportadora" value="'.$view['idTransportadora'].'">';
 					echo 	    '</div>';
+					echo 	    '<div>';
+                    echo 		    '<span>Codigo do produto:</span>';
+                    echo 		    '<input type="text" name="codProduto" value="'.$arrayProduto['codProduto'].'">';
+                    echo 		    '<span>Nome do produto: (Não editável)</span>';
+					echo 		    '<input type="text" name="nomeProduto" value="'.$arrayProduto['nome'].'"readonly>';
+					echo 	    '</div>';
 					echo    '</div>';
+					echo 	'<div class="col-md-8 register-bottom-grid">';
+                    echo 		'<input type="submit" value="Editar">';
+                	echo 	'</div>';
 					echo '</form>';
 				?>
 				</div>
 			</div>
 			<hr class="my-4">
-			<a href="../../view/viewCliente.php" style="color: black;">
+			<a href="../../view/viewCompra.php" style="color: black;">
 				Voltar
 			</a>
 			<div style="padding-top: 50px;"></div>

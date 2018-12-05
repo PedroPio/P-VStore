@@ -1,26 +1,14 @@
--- MySQL Workbench Forward Engineering
-
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
--- -----------------------------------------------------
--- Schema pevstore
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema pevstore
--- -----------------------------------------------------
-CREATE DATABASE IF NOT EXISTS `pevstore` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `pevstore` DEFAULT CHARACTER SET utf8 ;
 USE `pevstore` ;
 
--- -----------------------------------------------------
--- Table `pevstore`.`Pessoa`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pevstore`.`Pessoa` (
   `cpf` VARCHAR(14) NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
-  `dataNascimento` DATE NULL,
+  `dataNascimento` DATE NOT NULL,
   `email` VARCHAR(200) NOT NULL,
   `eAdmin` TINYINT(1) NULL DEFAULT 0,
   `senha` VARCHAR(45) NOT NULL,
@@ -30,10 +18,6 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Pessoa` (
   UNIQUE INDEX (`cpf`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `pevstore`.`Transportadora`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pevstore`.`Transportadora` (
   `idTransportadora` INT NOT NULL AUTO_INCREMENT,
   `cnpjTransportadora` VARCHAR(45) NOT NULL,
@@ -42,22 +26,14 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Transportadora` (
   UNIQUE INDEX  (`cnpjTransportadora`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `pevstore`.`Fornecedor`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pevstore`.`Fornecedor` (
   `cnpjFornecedor` VARCHAR(14) NOT NULL,
   `nome` VARCHAR(80) NOT NULL,
   `idFornecedor` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idFornecedor`),
-  UNIQUE INDEX (`cnpjFornecedor`))
+  UNIQUE INDEX (`cnpjFornecedor` ASC))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `pevstore`.`Produto`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pevstore`.`Produto` (
   `codProduto` INT NOT NULL AUTO_INCREMENT,
   `precoCompra` DECIMAL(8,2) NULL,
@@ -68,10 +44,6 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Produto` (
   PRIMARY KEY (`codProduto`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `pevstore`.`Compra`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pevstore`.`Compra` (
   `idCompra` INT NOT NULL AUTO_INCREMENT,
   `dataPedido` DATE NOT NULL,
@@ -81,6 +53,11 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Compra` (
   PRIMARY KEY (`idCompra`))
 ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `pevstore`.`Carrinho` (
+  `idCarrinho` INT NOT NULL,
+  `codProduto` INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`idCarrinho`))
+ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
