@@ -25,7 +25,7 @@
 			if(!mysqli_query($link, $query)) {
 				die("Erro ao tentar se cadastrar!.");
 			} else {
-				header("Location: ../../view/pagInicial.php");
+				header("Location: ../../view/login.php");
 			}
 		}
 		
@@ -39,7 +39,7 @@
 			if(!mysqli_query($link, $query)) {
 				die("ERRO. CLIENTE NÃO EXCLUIDO.");
 			}
-			header("Location: ../../view/deleteCliente.php");
+			header("Location: ../../view/crudClientes.php");
 		}
 		
 		function consultar($cod, $cpf, $link) {

@@ -1,8 +1,8 @@
 <?php
 	require "../../persistence/db.php";
 
-	$consulta = mysqli_query($conexao->getLink(), "SELECT id FROM Pessoa, Compra
-				 WHERE Pessoa.id = Compra.Pessoa_id");
+	$consulta = mysqli_query($conexao->getLink(), "SELECT id FROM Pessoa WHERE
+				nome = '".$_POST['nome']."'");
 	$array = mysqli_fetch_array($consulta);
 
 	$query = "UPDATE Compra SET dataPedido='".($_POST['dataPedido'])."',

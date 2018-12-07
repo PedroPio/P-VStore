@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="head-top">
 			<div class="row">
 				<div class="col-md-auto" style="text-align: center;">
-					<h1>CRUD Clientes</h1>
+					<h1>Alterar Clientes</h1>
 				</div>
 			</div>
 			<hr class="my-4" style="padding-bottom: 50px;">
@@ -74,7 +74,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					require "../../persistence/db.php";
 
 					include_once("../../model/cliente.php");
-					include_once("../../persistence/conexao.php");
 					include_once("../../persistence/clienteDAO.php");
 
 					$clientedao = new ClienteDAO();
@@ -84,6 +83,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					echo '<form action="salvarAlteracaoCliente.php" method="POST">';
 					echo 	'<div class="col-md-6 register-top-grid">';
+					echo 		'<div>';
+					echo 			'<span>ID do Cliente (Não editável)</span>';
+					echo 			'<input type="text" name="id" value="'.$view['id'].'" readonly>';
+					echo 		'</div>';
 					echo 		'<div>';
 					echo 			'<span>Nome Completo</span>';
 					echo 			'<input type="text" name="nome" value="'.$view['nome'].'">';

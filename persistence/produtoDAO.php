@@ -8,7 +8,7 @@
 			if(!mysqli_query($link, $query)) {
 				die("Erro ao tentar cadastrar produto!");
 			}else{
-				header("Location: ../../view/createProduto.php");
+				header("Location: ../../view/crudProdutos.php");
 			}
 		}
 		
@@ -17,7 +17,7 @@
 			if(!mysqli_query($link, $query)) {
 				die("ERRO. PRODUTO NÃO EXCLUIDO.");
 			}
-			header("Location: ../../view/deleteProduto.php");
+			header("Location: ../../view/crudProdutos.php");
 		}
 		
 		function montarCatalogo($link) {

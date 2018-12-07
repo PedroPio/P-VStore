@@ -74,10 +74,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					require "../../persistence/db.php";
 
 					$consulta = mysqli_query($conexao->getLink(), "SELECT * FROM Compra WHERE
-								idCompra = '".$_POST['idCompra']."'");
+								idCompra = '".$_POST['compra']."'");
 					$view = mysqli_fetch_array($consulta);
-					$nome = mysqli_query($conexao->getLink(), "SELECT nome FROM Pessoa, Compra WHERE
-								Pessoa.id = Compra.Pessoa_id");
+					$nome = mysqli_query($conexao->getLink(), "SELECT nome FROM Pessoa WHERE
+								Pessoa.id = '".$view['Pessoa_id']."'");
 					$arrayNome = mysqli_fetch_array($nome);
 
 					$produto = mysqli_query($conexao->getLink(), "SELECT nome, Produto.codProduto FROM Produto, Compra WHERE
@@ -87,8 +87,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					echo '<form action="salvarAlteracaoCompra.php" method="POST">';
 					echo    '<div class="col-md-6 register-top-grid">';
 					echo 	    '<div>';
-					echo 		    '<span>ID da compra</span>';
-					echo 		    '<input type="text" name="idCompra" value="'.$view['idCompra'].'">';
+					echo 		    '<span>ID da compra (Não editável)</span>';
+					echo 		    '<input type="text" name="idCompra" value="'.$view['idCompra'].'" readonly>';
 					echo 	    '</div>';
 					echo 	    '<div>';
 					echo 		    '<span>Data do Pedido</span>';
@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<hr class="my-4">
-			<a href="../../view/viewCompra.php" style="color: black;">
+			<a href="../../view/editCompra.php" style="color: black;">
 				Voltar
 			</a>
 			<div style="padding-top: 50px;"></div>

@@ -5,7 +5,6 @@
 	
 
 	include_once("../../model/cliente.php");
-	include_once("../../persistence/conexao.php");
 	include_once("../../persistence/clienteDAO.php");
 	
 	$cliente = new Cliente(null, $_POST["nome"], $_POST["dataNascimento"], $_POST["cpf"],

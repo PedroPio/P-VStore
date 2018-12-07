@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `pevstore`.`Compra` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `pevstore`.`Carrinho` (
-  `idCarrinho` INT NOT NULL,
+  `idCarrinho` INT NOT NULL AUTO_INCREMENT,
   `codProduto` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`idCarrinho`))
 ENGINE = InnoDB;

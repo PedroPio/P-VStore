@@ -70,36 +70,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 
 	
-<!--Registro-->
-<div class="container">
-	<div class="register">
-        <div class="head-top">
-            <form action="../controller/compra/consultarCompra.php" method="POST">
-                <h1>Visualizar compra</h1><br>
-                <hr class="my-4" style="padding-bottom: 50px;">
-                <div class="row justify-content-center">
-                    <div class="col-md-12 register-top-grid">
-                        <h3>Informação para consulta</h3><br>
-                    </div>
-                    <div class="col-md-6 register-top-grid">
-                        <div style="padding-bottom: 20px;">
-                            <span>Código da compra</span>
-                            <input type="number" name="idCompra"> 
-                        </div>
-                    </div>
-                    <div class="col-md-8 register-bottom-grid">
-                        <input type="submit" value="Consultar">						
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </form>
-        </div>
-        <hr class="my-4">
-        <a href="crudCompra.php" style="color: black;">
-            Voltar
-        </a>
-    </div>
-</div>
+<?php
+		require "../persistence/db.php";
+
+		echo '<div class="container">';
+		echo 	'<div class="register">';
+		echo 		'<div class="head-top">';
+		echo 			'<form action="../controller/compra/consultarCompra.php" method="POST">';
+		echo 				'<h1>Visualizar compra</h1><br>';
+		echo 				'<hr class="my-4" style="padding-bottom: 50px;">';
+		echo 				'<div class="row justify-content-center">';
+		echo 					'<div class="col-md-12 register-top-grid">';
+		echo 						'<h3>Informação para visualizar</h3><br>';
+		echo 					'</div>';
+		echo 					'<div class="col-md-6 register-top-grid">';
+		echo 						'<div style="padding-bottom: 20px;">';
+		echo 							'<span>Compra: (codigo - nome do produto/nome do cliente)</span>';
+		echo 							'<select name="compra">';
+		echo 								'<option hidden>Consulta compra</option>';
+		$compra = mysqli_query($conexao->getLink(), "SELECT idCompra, Pessoa.nome, Produto.nome FROM Compra, Pessoa, Produto WHERE Pessoa_id = Pessoa.id AND Compra.codProduto = Produto.codProduto");
+		while ($array = mysqli_fetch_array($compra)) {
+			echo '<option>'.$array['idCompra'].' - '.$array['nome'].' / '.$array[1].'</option>';
+		}
+		echo 						'</div>';
+		echo 					'</div>';
+		echo 					'<div class="col-md-8 register-bottom-grid">';
+		echo 						'<input type="submit" value="Visualizar">';
+		echo 					'</div>';
+		echo 				'</div>';
+		echo 			'</form>';
+		echo 		'</div>';
+		echo 		'<hr class="my-4">';
+		echo 		'<a href="crudCompra.php" style="color: black;">';
+		echo 			'Voltar';
+		echo 		'</a>';
+		echo 	'</div>';
+		echo '</div>';
+?>
 
 <!--Rodapé (duplicado em todas páginas)-->
 <div class="footer">

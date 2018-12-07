@@ -74,7 +74,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					require "../../persistence/db.php";
 
 					include_once("../../model/cliente.php");
-					include_once("../../persistence/conexao.php");
 					include_once("../../persistence/clienteDAO.php");
 
 					$clientedao = new ClienteDAO();
@@ -84,24 +83,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					echo '<div class="col-md-6 register-top-grid">';
 					echo 	'<div>';
+					echo 		'<span>ID do cliente</span>';
+					echo 		'<input type="text" value="'.$view['id'].'" readonly>';
+					echo 	'</div>';
+					echo 	'<div>';
 					echo 		'<span>Nome Completo</span>';
-					echo 		'<input type="text" value="'.$view['nome'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['nome'].'" readonly>';
 					echo 	'</div>';
 					echo 	'<div>';
 					echo 		'<span>Data de Nascimento</span>';
-					echo 		'<input type="text" value="'.$view['dataNascimento'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['dataNascimento'].'" readonly>';
 					echo 	'</div>';
 					echo 	'<div>';
 					echo 		'<span>CPF</span>';
-					echo 		'<input type="text" value="'.$view['cpf'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['cpf'].'" readonly>';
 					echo 	'</div>';
 					echo 	'<div>';
 					echo 		'<span>Email</span>';
-					echo 		'<input type="text" value="'.$view['email'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['email'].'" readonly>';
 					echo 	'</div>';
 					echo 	'<div>';
 					echo 		'<span>Senha</span>';
-					echo 		'<input type="text" value="'.$view['senha'].'" disabled>';
+					echo 		'<input type="text" value="'.$view['senha'].'" readonly>';
 					echo 	'</div>';
 					echo '</div>';
 				?>

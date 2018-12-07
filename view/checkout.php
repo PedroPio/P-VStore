@@ -31,6 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="header-left">		
 				<ul>
 					<?php
+						session_start();
 						if(isset($_GET['acao']) && $_GET['acao'] == 'sair'){
 						   	unset($_SESSION['login']);
 						   	unset($_SESSION['senha']);
@@ -273,38 +274,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	  	echo 		'</div>';
 		echo 	'</div>';
 		echo 	'<div class="col-md-3 cart-total">';
-		echo 		'<div class="price-details">';
-		echo 			'<h3>Detalhes da compra</h3>';
-		echo 			'<form action="../controller/compra/finalizarCompra.php" method="POST">';
-		echo 				'<span>Total</span>';
-		echo 				'<input type="text" name="total" value="R$'.$result['precoVenda'].'" disabled>';
-		echo 				'<span>Desconto</span>';
-		echo 				'<input type="text" name="desconto" value="--" disabled>';
-		echo 				'<span>Preço do frete</span>';
-		echo 				'<input type="text" name="frete" value="R$0.00" disabled>';
-		echo 				'<span>Transportadora</span>';
-		echo 				'<select>';
-		echo 				'<option hidden>Consulta transportadora</option>';
+		echo 		'<div class="available">';
+		echo 			'<div class="price-details">';
+		echo 				'<h3>Detalhes da compra</h3>';
+		echo 				'<form action="../controller/compra/finalizarCompra.php" method="POST">';
+		echo 					'<span>Total</span>';
+		echo 					'<input type="text" name="total" value="R$'.$result['precoVenda'].'" readonly>';
+		echo 					'<span>Desconto</span>';
+		echo 					'<input type="text" name="desconto" value="--" readonly>';
+		echo 					'<span>Preço do frete</span>';
+		echo 					'<input type="text" name="frete" value="R$0.00" readonly>';
+		echo 					'<span>Transportadora</span>';
+		echo 					'<select name="transportadora">';
+		echo 					'<option hidden>Consulta transportadora</option>';
 		$queryTransp = mysqli_query($conexao->getLink(), "SELECT * FROM Transportadora");
 		while ($arrayTransp = mysqli_fetch_array($queryTransp)) {
 			echo '<option>'.$arrayTransp['idTransportadora'].' - '.$arrayTransp['nome'].'</option>';
 		}
-		echo 				'</select>';
-		echo 				'<input type="text" name="transportadora" placeholder="código da transportadora" required>';
-		echo 				'<div class="clearfix"></div>';
-		echo 				'<span>Item</span>';
-		echo 				'<input type="text" name="item" value="'.$result['codProduto'].'" readonly>';
-		echo 				'<ul class="total_price">';
-		echo 					'<li class="last_price"> <h4>TOTAL</h4></li>	';
-		echo 					'<li class="last_price"><span>R$'.$result['precoVenda'].'</span></li>';
-		echo 					'<div class="clearfix"> </div>';
-		echo 				'</ul>';
-		echo 				'<div class="clearfix"></div>';
-		echo 				'<input type="submit" value="Comprar">';
-		echo 			'</form>';
+		echo 					'</select>';
+		echo 					'<span>Item</span>';
+		echo 					'<input type="text" name="item" value="'.$result['codProduto'].'" readonly>';
+		echo 					'<ul class="total_price">';
+		echo 						'<li class="last_price"> <h4>TOTAL</h4></li>	';
+		echo 						'<li class="last_price"><span>R$'.$result['precoVenda'].'</span></li>';
+		echo 						'<div class="clearfix"> </div>';
+		echo 					'</ul>';
+		echo 					'<input type="submit" value="Comprar">';
+		echo 				'</form>';
+		echo 			'</div>	';
 		echo 		'</div>	';
 		echo 	'</div>';
-		echo 	'<div class="clearfix"> </div>';
 		echo '</div>';
 	?>
 </div>

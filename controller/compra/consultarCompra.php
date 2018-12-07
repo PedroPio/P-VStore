@@ -83,11 +83,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-12">
 				<?php
 					require "../../persistence/db.php";
-
-					include_once("../../persistence/conexao.php");
 					
 					$consulta = mysqli_query($conexao->getLink(), "SELECT * FROM Compra 
-					WHERE idCompra = '".$_POST['idCompra']."'");
+					WHERE idCompra = '".$_POST['compra']."'");
 					$view = mysqli_fetch_array($consulta);
 					
 					$query = mysqli_query($conexao->getLink(), "SELECT nome FROM Compra, Pessoa
